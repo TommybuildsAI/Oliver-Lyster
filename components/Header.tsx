@@ -14,6 +14,7 @@ export function Header({
   const nav = [
     { href: `/${locale}/works`, labelDa: "Værker", labelEn: "Works", match: "/works" },
     { href: `/${locale}/about`, labelDa: "Om", labelEn: "About", match: "/about" },
+    { href: `/${locale}/press`, labelDa: "Presse", labelEn: "Press", match: "/press" },
     { href: `/${locale}/contact`, labelDa: "Kontakt", labelEn: "Contact", match: "/contact" },
   ];
 

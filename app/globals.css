@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f2ede4;
-  --color-paper-deep: #ebe4d8;
-  --color-ink: #141210;
-  --color-ink-soft: #2a2622;
-  --color-graphite: #6a6056;
-  --color-rule: #cfc6b7;
+  --color-paper: #ece1c6;
+  --color-paper-deep: #e1d3af;
+  --color-ink: #3b2a1a;
+  --color-ink-soft: #523c28;
+  --color-graphite: #7a5e42;
+  --color-rule: #c2ac82;
 
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -43,19 +43,30 @@ body {
   color: var(--color-paper);
 }
 
-/* Subtle paper grain — barely perceptible, adds depth without noise */
+/* Parchment grain — warm mottle, not a synthetic dot grid */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: radial-gradient(
-      rgba(20, 18, 16, 0.018) 1px,
+  background-image:
+    radial-gradient(
+      ellipse at 20% 30%,
+      rgba(90, 60, 30, 0.06) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 80% 70%,
+      rgba(90, 60, 30, 0.05) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      rgba(60, 40, 20, 0.025) 1px,
       transparent 1px
     ),
-    radial-gradient(rgba(20, 18, 16, 0.012) 1px, transparent 1px);
-  background-size: 3px 3px, 7px 7px;
-  background-position: 0 0, 1px 1px;
+    radial-gradient(rgba(60, 40, 20, 0.018) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 3px 3px, 7px 7px;
+  background-position: 0 0, 0 0, 0 0, 1px 1px;
   z-index: 1;
   mix-blend-mode: multiply;
 }
@@ -244,10 +255,11 @@ html {
 }
 
 .display-serif {
-  font-weight: 300;
-  letter-spacing: -0.02em;
+  font-weight: 340;
+  letter-spacing: -0.015em;
   line-height: 0.95;
-  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+  color: color-mix(in oklab, var(--color-ink) 92%, transparent);
 }
 
 .body-serif {

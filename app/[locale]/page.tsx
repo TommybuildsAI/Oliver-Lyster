@@ -16,11 +16,11 @@ export default async function Home({
   const L = locale as Locale;
   const d = t(L);
 
-  const hero = artworks.find((a) => a.slug === "storm-coming")!;
+  const hero = artworks.find((a) => a.slug === "contemplation")!;
   const selected = [
+    artworks.find((a) => a.slug === "storm-coming")!,
     artworks.find((a) => a.slug === "twisted-willow")!,
     artworks.find((a) => a.slug === "filip")!,
-    artworks.find((a) => a.slug === "midnight-with-trees")!,
     artworks.find((a) => a.slug === "memories-of-autumn")!,
   ];
 
@@ -87,14 +87,22 @@ export default async function Home({
             className="col-span-12 order-2 mt-12 md:col-span-7 md:mt-0 lg:col-span-8"
           >
             <HeroParallax strength={6}>
-              <div className="relative w-full overflow-hidden">
+              <div
+                className="relative mx-auto w-full overflow-hidden md:max-w-[78%]"
+              >
                 <Image
                   src={hero.image}
                   alt={hero.title[L]}
-                  width={1600}
-                  height={1200}
+                  width={1400}
+                  height={
+                    hero.orientation === "portrait"
+                      ? 1800
+                      : hero.orientation === "square"
+                      ? 1400
+                      : 1050
+                  }
                   priority
-                  sizes="(min-width: 1024px) 64vw, (min-width: 768px) 56vw, 100vw"
+                  sizes="(min-width: 1024px) 50vw, (min-width: 768px) 44vw, 100vw"
                   className="kenburns h-auto w-full"
                 />
               </div>

@@ -7,6 +7,7 @@ export const dict = {
     nav: {
       works: "Værker",
       about: "Om",
+      press: "Presse",
       contact: "Kontakt",
     },
     home: {
@@ -31,10 +32,18 @@ export const dict = {
       sold: "Solgt",
       inquire: "Forespørg om værket",
       back: "Tilbage til værker",
+      paintings: "Malerier",
+      drawings: "Tegninger",
     },
     about: {
       title: "Om kunstneren",
       instagram: "Følg på Instagram",
+    },
+    press: {
+      title: "Presse",
+      intro:
+        "Udvalgte artikler og omtaler om kunstneren og hans arbejde.",
+      readArticle: "Læs artiklen",
     },
     contact: {
       title: "Kontakt",
@@ -57,6 +66,7 @@ export const dict = {
     nav: {
       works: "Works",
       about: "About",
+      press: "Press",
       contact: "Contact",
     },
     home: {
@@ -81,10 +91,18 @@ export const dict = {
       sold: "Sold",
       inquire: "Enquire about this work",
       back: "Back to works",
+      paintings: "Paintings",
+      drawings: "Drawings",
     },
     about: {
       title: "About the artist",
       instagram: "Follow on Instagram",
+    },
+    press: {
+      title: "Press",
+      intro:
+        "Selected features and mentions about the artist and his work.",
+      readArticle: "Read the article",
     },
     contact: {
       title: "Contact",

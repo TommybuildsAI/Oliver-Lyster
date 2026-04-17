@@ -41,10 +41,20 @@ export function Rise({
           }
         }
       },
-      { rootMargin: "-8% 0px", threshold: 0.05 }
+      { rootMargin: "0px 0px 300px 0px", threshold: 0 }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Safety net: if the observer never fires for any reason, force-reveal
+    // after a reasonable delay so content never stays permanently hidden.
+    const safety = window.setTimeout(() => {
+      el.classList.add("in");
+    }, 4000 + delay);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(safety);
+    };
   }, [delay]);
 
   const Component = Tag as React.ElementType;

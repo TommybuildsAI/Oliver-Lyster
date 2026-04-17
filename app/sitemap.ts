@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     urls.push({ url: `${base}/${locale}`, changeFrequency: "monthly" });
     urls.push({ url: `${base}/${locale}/works`, changeFrequency: "monthly" });
     urls.push({ url: `${base}/${locale}/about`, changeFrequency: "yearly" });
+    urls.push({ url: `${base}/${locale}/press`, changeFrequency: "monthly" });
     urls.push({ url: `${base}/${locale}/contact`, changeFrequency: "yearly" });
     for (const a of artworks) {
       urls.push({

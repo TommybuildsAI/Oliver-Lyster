@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
-import { artworks } from "@/lib/artworks";
+import { paintings, drawings, type Artwork } from "@/lib/artworks";
 import { locales, t, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -16,33 +16,38 @@ export async function generateMetadata({
   return { title: t(L).works.title };
 }
 
-export default async function Works({
-  params,
+function Collection({
+  items,
+  label,
+  anchor,
+  locale: L,
+  startIndex = 0,
 }: {
-  params: Promise<{ locale: string }>;
+  items: Artwork[];
+  label: string;
+  anchor: string;
+  locale: Locale;
+  startIndex?: number;
 }) {
-  const { locale } = await params;
-  if (!locales.includes(locale as Locale)) notFound();
-  const L = locale as Locale;
-  const d = t(L);
-
+  if (items.length === 0) return null;
   return (
-    <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
-      <Rise as="header" variant="drawline" className="mb-20 grid grid-cols-12 gap-6 pb-10 md:mb-32 md:gap-8">
-        <h1 className="display-serif col-span-12 text-5xl md:col-span-7 md:text-7xl">
-          <Rise as="span" variant="blur-rise" delay={80} className="block">
-            {d.works.title}
-          </Rise>
-        </h1>
-        <p className="body-serif col-span-12 text-base text-ink-soft md:col-span-4 md:col-start-9 md:self-end md:text-lg">
-          {d.works.intro}
-        </p>
+    <section id={anchor} className="mb-40 scroll-mt-24 md:mb-56">
+      <Rise
+        as="div"
+        variant="drawline"
+        className="mb-20 flex items-baseline justify-between pb-4 md:mb-32"
+      >
+        <h2 className="smallcaps text-sm md:text-base">— {label}</h2>
+        <span className="smallcaps text-[0.7rem] text-graphite">
+          {items.length}
+        </span>
       </Rise>
 
-      <ol className="flex flex-col gap-32 md:gap-48">
-        {artworks.map((a, i) => {
+      <ol className="flex flex-col gap-28 md:gap-40">
+        {items.map((a, i) => {
+          const globalIndex = startIndex + i;
           const isWide = a.orientation !== "portrait";
-          const offsetCols = i % 3;
+          const offsetCols = globalIndex % 3;
           return (
             <Rise key={a.slug} as="li" variant="curtain" delay={60}>
               <Link href={`/${L}/works/${a.slug}`} className="group block">
@@ -104,6 +109,79 @@ export default async function Works({
           );
         })}
       </ol>
+    </section>
+  );
+}
+
+export default async function Works({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!locales.includes(locale as Locale)) notFound();
+  const L = locale as Locale;
+  const d = t(L);
+
+  return (
+    <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
+      <Rise
+        as="header"
+        variant="drawline"
+        className="mb-16 grid grid-cols-12 gap-6 pb-10 md:mb-24 md:gap-8"
+      >
+        <h1 className="display-serif col-span-12 text-5xl md:col-span-7 md:text-7xl">
+          <Rise as="span" variant="blur-rise" delay={80} className="block">
+            {d.works.title}
+          </Rise>
+        </h1>
+        <p className="body-serif col-span-12 text-base text-ink-soft md:col-span-4 md:col-start-9 md:self-end md:text-lg">
+          {d.works.intro}
+        </p>
+      </Rise>
+
+      {/* Jump nav — two categories */}
+      <Rise
+        as="nav"
+        className="mb-24 flex items-baseline gap-8 md:mb-32 md:gap-12"
+        delay={200}
+      >
+        <Link
+          href="#paintings"
+          className="smallcaps text-sm link-underline md:text-base"
+          data-active="true"
+        >
+          {d.works.paintings}
+          <span className="ml-2 text-graphite">
+            ({paintings.length})
+          </span>
+        </Link>
+        <Link
+          href="#drawings"
+          className="smallcaps text-sm link-underline md:text-base"
+          data-active="true"
+        >
+          {d.works.drawings}
+          <span className="ml-2 text-graphite">
+            ({drawings.length})
+          </span>
+        </Link>
+      </Rise>
+
+      <Collection
+        items={paintings}
+        label={d.works.paintings}
+        anchor="paintings"
+        locale={L}
+        startIndex={0}
+      />
+      <Collection
+        items={drawings}
+        label={d.works.drawings}
+        anchor="drawings"
+        locale={L}
+        startIndex={paintings.length}
+      />
     </div>
   );
 }
