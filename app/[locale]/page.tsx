@@ -25,53 +25,68 @@ export default async function Home({
 
   return (
     <>
-      {/* HERO — one painting, the artist's name, no CTA clutter */}
+      {/* HERO — work first, artist's name as metadata alongside */}
       <section className="relative">
-        <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:gap-x-8 md:px-12 md:pt-16">
-          <Rise
-            as="p"
-            className="col-span-12 order-1 smallcaps text-[0.7rem] text-graphite md:col-span-4 md:pt-4"
-          >
-            b. 1998 · Funen, Denmark
-          </Rise>
+        <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
+          {/* Text column — title, metadata, lead, CTAs */}
+          <div className="col-span-12 order-1 md:col-span-5 lg:col-span-4">
+            <Rise
+              as="h1"
+              className="display-serif text-5xl leading-[0.95] md:text-[3.75rem] md:leading-[0.95] lg:text-[5rem]"
+              delay={100}
+            >
+              Oliver
+              <br />
+              <span
+                className="italic"
+                style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}
+              >
+                Lyster
+              </span>
+            </Rise>
 
-          <Rise
-            as="h1"
-            className="display-serif col-span-12 order-3 mt-8 text-5xl leading-[0.95] md:order-2 md:col-span-8 md:mt-0 md:text-[7rem] md:leading-[0.92] lg:text-[9rem]"
-            delay={100}
-          >
-            Oliver
-            <br />
-            <span className="italic" style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}>
-              Lyster
-            </span>
-          </Rise>
+            <Rise
+              as="p"
+              delay={200}
+              className="mt-5 smallcaps text-[0.75rem] text-graphite md:mt-6"
+            >
+              b. 1998 · Funen, Denmark
+            </Rise>
 
-          <div className="col-span-12 order-2 mt-6 md:order-3 md:col-span-4 md:mt-0 md:col-start-1 md:row-start-2">
-            <Rise as="p" delay={300} className="body-serif mt-6 text-base md:mt-8 md:text-lg md:pr-6">
+            <Rise
+              as="p"
+              delay={300}
+              className="body-serif mt-8 text-base md:mt-10 md:pr-2 md:text-lg"
+            >
               {d.home.lead}
             </Rise>
-            <Rise as="div" delay={500} className="mt-10 flex flex-col gap-3 md:mt-16">
+
+            <Rise
+              as="div"
+              delay={500}
+              className="mt-10 flex flex-col gap-4 md:mt-12"
+            >
               <Link
                 href={`/${L}/works`}
-                className="smallcaps text-xs link-underline self-start"
+                className="smallcaps text-sm link-underline self-start md:text-base lg:text-[1.05rem]"
                 data-active="true"
               >
                 — {d.home.viewWorks}
               </Link>
               <Link
                 href={`/${L}/about`}
-                className="smallcaps text-xs link-underline self-start text-graphite"
+                className="smallcaps text-sm link-underline self-start text-graphite md:text-base lg:text-[1.05rem]"
               >
                 — {d.home.readAbout}
               </Link>
             </Rise>
           </div>
 
+          {/* Hero painting — dominant, breathing */}
           <Rise
             as="figure"
             delay={200}
-            className="col-span-12 order-4 mt-12 md:col-span-8 md:col-start-5 md:row-start-2 md:mt-8"
+            className="col-span-12 order-2 mt-12 md:col-span-7 md:mt-0 lg:col-span-8"
           >
             <div className="relative w-full overflow-hidden">
               <Image
@@ -80,7 +95,7 @@ export default async function Home({
                 width={1600}
                 height={1200}
                 priority
-                sizes="(min-width: 768px) 66vw, 100vw"
+                sizes="(min-width: 1024px) 64vw, (min-width: 768px) 56vw, 100vw"
                 className="h-auto w-full"
               />
             </div>

@@ -10,7 +10,7 @@ export function LanguageToggle({
 }) {
   const suffix = stripped === "/" ? "" : stripped;
   const base =
-    "smallcaps text-[0.65rem] tracking-[0.2em] transition-colors md:text-[0.7rem]";
+    "smallcaps text-[0.75rem] tracking-[0.2em] transition-colors md:text-[0.85rem] lg:text-[0.9rem]";
   const active = "text-ink";
   const inactive = "text-graphite/60 hover:text-ink";
 
