@@ -29,25 +29,27 @@ export default async function About({
       <div className="grid grid-cols-12 gap-8 md:gap-12">
         <Rise
           as="header"
-          className="col-span-12 border-b border-rule pb-10 md:col-span-10 md:col-start-2 md:pb-16"
+          variant="drawline"
+          className="col-span-12 pb-10 md:col-span-10 md:col-start-2 md:pb-16"
         >
           <p className="smallcaps text-[0.7rem] text-graphite">
             — {d.about.title}
           </p>
           <h1 className="display-serif mt-6 text-5xl leading-[0.95] md:mt-10 md:text-7xl lg:text-8xl">
-            Oliver
-            <br />
-            <span
-              className="italic"
-              style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}
-            >
-              Lyster
-            </span>
+            <Rise as="span" variant="blur-rise" delay={80} className="block">
+              Oliver
+            </Rise>
+            <Rise as="span" variant="blur-rise" delay={260} className="block italic">
+              <span style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}>
+                Lyster
+              </span>
+            </Rise>
           </h1>
         </Rise>
 
         <Rise
           as="figure"
+          variant="curtain"
           delay={150}
           className="col-span-12 md:col-span-5 md:col-start-2"
         >

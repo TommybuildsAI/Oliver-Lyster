@@ -31,7 +31,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className={fraunces.variable} suppressHydrationWarning>
+    <html
+      className={fraunces.variable}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body>{children}</body>
     </html>
   );

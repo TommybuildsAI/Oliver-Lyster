@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
+import { HeroParallax } from "@/components/HeroParallax";
 import { artworks } from "@/lib/artworks";
 import { locales, t, type Locale } from "@/lib/i18n";
 
@@ -30,25 +31,21 @@ export default async function Home({
         <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
           {/* Text column — title, metadata, lead, CTAs */}
           <div className="col-span-12 order-1 md:col-span-5 lg:col-span-4">
-            <Rise
-              as="h1"
-              className="display-serif text-5xl leading-[0.95] md:text-[3.75rem] md:leading-[0.95] lg:text-[5rem]"
-              delay={100}
-            >
-              Oliver
-              <br />
-              <span
-                className="italic"
-                style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}
-              >
-                Lyster
-              </span>
-            </Rise>
+            <h1 className="display-serif text-5xl leading-[0.95] md:text-[3.75rem] md:leading-[0.95] lg:text-[5rem]">
+              <Rise as="span" variant="blur-rise" delay={80} className="block">
+                Oliver
+              </Rise>
+              <Rise as="span" variant="blur-rise" delay={260} className="block italic" >
+                <span style={{ fontVariationSettings: '"opsz" 144, "SOFT" 100' }}>
+                  Lyster
+                </span>
+              </Rise>
+            </h1>
 
             <Rise
               as="p"
               delay={200}
-              className="mt-5 smallcaps text-[0.75rem] text-graphite md:mt-6"
+              className="mt-5 smallcaps text-[0.75rem] text-graphite md:mt-6 md:text-[0.9rem] lg:text-[0.95rem]"
             >
               b. 1998 · Funen, Denmark
             </Rise>
@@ -82,23 +79,26 @@ export default async function Home({
             </Rise>
           </div>
 
-          {/* Hero painting — dominant, breathing */}
+          {/* Hero painting — dominant, breathing, parallax to cursor */}
           <Rise
             as="figure"
+            variant="curtain"
             delay={200}
             className="col-span-12 order-2 mt-12 md:col-span-7 md:mt-0 lg:col-span-8"
           >
-            <div className="relative w-full overflow-hidden">
-              <Image
-                src={hero.image}
-                alt={hero.title[L]}
-                width={1600}
-                height={1200}
-                priority
-                sizes="(min-width: 1024px) 64vw, (min-width: 768px) 56vw, 100vw"
-                className="h-auto w-full"
-              />
-            </div>
+            <HeroParallax strength={6}>
+              <div className="relative w-full overflow-hidden">
+                <Image
+                  src={hero.image}
+                  alt={hero.title[L]}
+                  width={1600}
+                  height={1200}
+                  priority
+                  sizes="(min-width: 1024px) 64vw, (min-width: 768px) 56vw, 100vw"
+                  className="kenburns h-auto w-full"
+                />
+              </div>
+            </HeroParallax>
             <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-4">
               <span className="font-serif italic text-sm md:text-base">
                 {hero.title[L]}
@@ -114,7 +114,11 @@ export default async function Home({
       {/* SELECTED WORKS — asymmetric, one-per-viewport feel */}
       <section className="mt-40 md:mt-56">
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
-          <Rise as="div" className="mb-16 flex items-baseline justify-between border-b border-rule pb-4 md:mb-24">
+          <Rise
+            as="div"
+            variant="drawline"
+            className="mb-16 flex items-baseline justify-between pb-4 md:mb-24"
+          >
             <h2 className="smallcaps text-xs">— {d.home.selected}</h2>
             <Link
               href={`/${L}/works`}
@@ -162,7 +166,7 @@ export default async function Home({
                         <span className="smallcaps text-[0.7rem] text-graphite">
                           № {String(a.number).padStart(2, "0")}
                         </span>
-                        <h3 className="display-serif text-3xl italic md:text-4xl">
+                        <h3 className="display-serif soft-morph text-3xl italic md:text-4xl">
                           {a.title[L]}
                         </h3>
                         <p className="smallcaps text-[0.7rem] text-graphite">

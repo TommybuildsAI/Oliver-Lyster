@@ -33,11 +33,14 @@ export default async function Contact({
       <div className="grid grid-cols-12 gap-8 md:gap-12">
         <Rise
           as="header"
-          className="col-span-12 border-b border-rule pb-10 md:col-span-10 md:col-start-2 md:pb-16"
+          variant="drawline"
+          className="col-span-12 pb-10 md:col-span-10 md:col-start-2 md:pb-16"
         >
           <p className="smallcaps text-[0.7rem] text-graphite">— {d.contact.title}</p>
           <h1 className="display-serif mt-6 text-5xl leading-[0.95] md:mt-10 md:text-7xl">
-            {d.contact.title}
+            <Rise as="span" variant="blur-rise" delay={100} className="block">
+              {d.contact.title}
+            </Rise>
           </h1>
         </Rise>
 
@@ -51,24 +54,24 @@ export default async function Contact({
 
           <div className="mt-12 flex flex-col gap-5 border-t border-rule pt-6">
             <div>
-              <p className="smallcaps text-[0.65rem] text-graphite">
+              <p className="smallcaps text-[0.8rem] text-graphite md:text-[0.9rem]">
                 {d.contact.preferEmail}
               </p>
               <a
                 href={`mailto:${email}`}
-                className="mt-2 font-serif italic text-lg link-underline"
+                className="mt-3 font-serif italic text-xl link-underline md:text-2xl"
                 data-active="true"
               >
                 {email}
               </a>
             </div>
             <div>
-              <p className="smallcaps text-[0.65rem] text-graphite">Instagram</p>
+              <p className="smallcaps text-[0.8rem] text-graphite md:text-[0.9rem]">Instagram</p>
               <a
                 href="https://www.instagram.com/oliverlyster/"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 font-serif italic text-lg link-underline"
+                className="mt-3 font-serif italic text-xl link-underline md:text-2xl"
                 data-active="true"
               >
                 @oliverlyster

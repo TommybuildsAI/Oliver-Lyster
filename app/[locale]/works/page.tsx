@@ -28,9 +28,11 @@ export default async function Works({
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
-      <Rise as="header" className="mb-20 grid grid-cols-12 gap-6 border-b border-rule pb-10 md:mb-32 md:gap-8">
+      <Rise as="header" variant="drawline" className="mb-20 grid grid-cols-12 gap-6 pb-10 md:mb-32 md:gap-8">
         <h1 className="display-serif col-span-12 text-5xl md:col-span-7 md:text-7xl">
-          {d.works.title}
+          <Rise as="span" variant="blur-rise" delay={80} className="block">
+            {d.works.title}
+          </Rise>
         </h1>
         <p className="body-serif col-span-12 text-base text-ink-soft md:col-span-4 md:col-start-9 md:self-end md:text-lg">
           {d.works.intro}
@@ -42,7 +44,7 @@ export default async function Works({
           const isWide = a.orientation !== "portrait";
           const offsetCols = i % 3;
           return (
-            <Rise key={a.slug} as="li" delay={60}>
+            <Rise key={a.slug} as="li" variant="curtain" delay={60}>
               <Link href={`/${L}/works/${a.slug}`} className="group block">
                 <div className="grid grid-cols-12 gap-4 md:gap-8">
                   <div
@@ -86,7 +88,7 @@ export default async function Works({
                           <span className="smallcaps text-[0.7rem] text-graphite">
                             № {String(a.number).padStart(2, "0")}
                           </span>
-                          <span className="font-serif italic text-lg md:text-xl">
+                          <span className="font-serif italic soft-morph text-lg md:text-xl">
                             {a.title[L]}
                           </span>
                         </span>

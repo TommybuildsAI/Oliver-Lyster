@@ -68,6 +68,7 @@ export default async function Work({
       <article className="grid grid-cols-12 gap-8 md:gap-12">
         <Rise
           as="figure"
+          variant="curtain"
           className="col-span-12 md:col-span-8"
         >
           <div className="relative overflow-hidden">
@@ -92,7 +93,9 @@ export default async function Work({
             № {String(a.number).padStart(2, "0")}
           </p>
           <h1 className="display-serif mt-3 text-4xl italic md:text-5xl">
-            {a.title[L]}
+            <Rise as="span" variant="blur-rise" delay={200} className="block">
+              {a.title[L]}
+            </Rise>
           </h1>
           <dl className="mt-10 flex flex-col gap-4 text-sm">
             <div>

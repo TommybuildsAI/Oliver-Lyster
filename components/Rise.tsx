@@ -2,27 +2,41 @@
 
 import { useEffect, useRef } from "react";
 
+type Variant = "rise" | "blur-rise" | "curtain" | "drawline";
+
 export function Rise({
   children,
   delay = 0,
   as: Tag = "div",
   className = "",
+  variant = "rise",
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   delay?: number;
   as?: keyof React.JSX.IntrinsicElements;
   className?: string;
+  variant?: Variant;
 }) {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const alreadyVisible =
+      rect.top < window.innerHeight && rect.bottom > 0 && rect.height > 0;
+
+    if (alreadyVisible) {
+      const id = window.setTimeout(() => el.classList.add("in"), delay);
+      return () => window.clearTimeout(id);
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            setTimeout(() => el.classList.add("in"), delay);
+            window.setTimeout(() => el.classList.add("in"), delay);
             io.unobserve(el);
           }
         }
@@ -37,7 +51,7 @@ export function Rise({
   return (
     <Component
       ref={ref as React.Ref<HTMLElement>}
-      className={`rise ${className}`}
+      className={`${variant} ${className}`}
     >
       {children}
     </Component>

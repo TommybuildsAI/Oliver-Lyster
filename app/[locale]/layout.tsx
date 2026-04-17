@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Analytics, SearchConsoleVerification } from "@/components/Analytics";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { locales, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -25,6 +26,7 @@ export default async function LocaleLayout({
   return (
     <>
       <SearchConsoleVerification />
+      <ScrollProgress />
       <div className="flex min-h-screen flex-col">
         <Header locale={locale as Locale} pathname={pathname} />
         <main className="relative z-10 flex-1">{children}</main>
