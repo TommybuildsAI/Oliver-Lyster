@@ -22,7 +22,7 @@ export default async function Home({
     <section className="relative">
       <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
         {/* Text column — lead + CTAs (title removed per artist's request) */}
-        <div className="col-span-12 order-1 md:col-span-5 lg:col-span-4">
+        <div className="col-span-12 order-1 md:col-span-4 lg:col-span-3">
           <Rise
             as="p"
             delay={200}
@@ -57,17 +57,17 @@ export default async function Home({
           as="figure"
           variant="curtain"
           delay={120}
-          className="col-span-12 order-2 mt-12 md:col-span-7 md:mt-0 lg:col-span-8"
+          className="col-span-12 order-2 mt-12 md:col-span-8 md:mt-0 lg:col-span-9"
         >
           <HeroParallax strength={6}>
-            <div className="relative mx-auto w-full overflow-hidden md:max-w-[78%]">
+            <div className="relative mx-auto w-full overflow-hidden md:max-w-[92%]">
               <Image
                 src={hero.image}
                 alt={hero.title[L]}
                 width={1400}
                 height={1800}
                 priority
-                sizes="(min-width: 1024px) 50vw, (min-width: 768px) 44vw, 100vw"
+                sizes="(min-width: 1024px) 62vw, (min-width: 768px) 54vw, 100vw"
                 className="kenburns h-auto w-full"
               />
             </div>
