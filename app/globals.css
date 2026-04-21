@@ -43,30 +43,53 @@ body {
   color: var(--color-paper);
 }
 
-/* Parchment grain — warm mottle, not a synthetic dot grid */
+/* Parchment — real scanned paper texture + corner vignette */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   background-image:
-    radial-gradient(
-      ellipse at 20% 30%,
-      rgba(90, 60, 30, 0.06) 0%,
-      transparent 55%
+    /* Corner vignette — ages the edges */
+    radial-gradient(ellipse at center, transparent 50%, rgba(60, 40, 20, 0.14) 100%),
+    /* Real scanned parchment texture */
+    url("/textures/paper.jpg");
+  background-size:
+    100% 100%,
+    cover;
+  background-position:
+    center center,
+    center center;
+  background-repeat: no-repeat, no-repeat;
+  background-attachment: fixed, fixed;
+  z-index: 1;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+/* Second layer: subtle diagonal fold creases, barely there */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      112deg,
+      transparent 0%,
+      transparent 49.7%,
+      rgba(60, 40, 20, 0.03) 49.85%,
+      transparent 50%,
+      transparent 100%
     ),
-    radial-gradient(
-      ellipse at 80% 70%,
-      rgba(90, 60, 30, 0.05) 0%,
-      transparent 60%
-    ),
-    radial-gradient(
-      rgba(60, 40, 20, 0.025) 1px,
-      transparent 1px
-    ),
-    radial-gradient(rgba(60, 40, 20, 0.018) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 3px 3px, 7px 7px;
-  background-position: 0 0, 0 0, 0 0, 1px 1px;
+    linear-gradient(
+      74deg,
+      transparent 0%,
+      transparent 33.7%,
+      rgba(60, 40, 20, 0.022) 33.85%,
+      transparent 34%,
+      transparent 100%
+    );
   z-index: 1;
   mix-blend-mode: multiply;
 }
@@ -210,6 +233,59 @@ a {
   pointer-events: none;
 }
 
+/* Paper flutter — artwork cards lift and tilt like a loose page being picked up */
+.paper-flutter {
+  transition: transform 900ms cubic-bezier(0.2, 0.6, 0.1, 1),
+    filter 900ms cubic-bezier(0.2, 0.6, 0.1, 1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.paper-flutter:hover {
+  transform: rotate(0.35deg) translateY(-4px);
+  filter: drop-shadow(0 14px 22px rgba(60, 40, 20, 0.18))
+    drop-shadow(0 4px 8px rgba(60, 40, 20, 0.12));
+}
+
+/* Ink breathe — slow, barely perceptible pulse on display titles like ink settling into fiber */
+@keyframes ink-breathe {
+  0% {
+    opacity: 0.88;
+    letter-spacing: -0.015em;
+  }
+  50% {
+    opacity: 0.94;
+    letter-spacing: -0.0145em;
+  }
+  100% {
+    opacity: 0.88;
+    letter-spacing: -0.015em;
+  }
+}
+
+.display-serif {
+  animation: ink-breathe 9s ease-in-out infinite;
+}
+
+/* Deckle edge — irregular bottom edge for figure captions to feel torn rather than cut */
+.deckle {
+  --deckle-color: var(--color-paper);
+  position: relative;
+}
+
+.deckle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 6px;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='6' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q8,5 15,2 T30,3 T45,1 T60,4 T75,2 T90,3 T105,1 T120,2 L120,6 L0,6 Z' fill='%23ece1c6'/%3E%3C/svg%3E");
+  background-size: 120px 6px;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -229,12 +305,16 @@ html {
     transition: none;
     width: 100%;
   }
-  .kenburns {
+  .kenburns,
+  .display-serif {
     animation: none;
   }
-  .parallax {
+  .parallax,
+  .paper-flutter,
+  .paper-flutter:hover {
     transform: none;
     transition: none;
+    filter: none;
   }
   .soft-morph,
   .group:hover .soft-morph,

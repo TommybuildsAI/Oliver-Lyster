@@ -7,14 +7,15 @@ export const dict = {
     nav: {
       works: "Værker",
       about: "Om",
+      exhibitions: "Udstillinger",
       press: "Presse",
       contact: "Kontakt",
     },
     home: {
       signature: "Oliver Lyster",
-      subtitle: "Maler. Funen, Danmark.",
+      subtitle: "Maler. Fyn, Danmark.",
       lead:
-        "Et kunstnerskab rodfæstet i den klassiske tradition — landskaber, portrætter og stilleben malet i olie, med respekt for de gamle mestres håndværk.",
+        "Et kunstnerskab rodfæstet i den klassiske tradition — landskaber, portrætter og stillebener malet i olie, med respekt for de gamle mestres håndværk.",
       viewWorks: "Se værker",
       readAbout: "Læs om kunstneren",
       selected: "Udvalgte værker",
@@ -23,7 +24,7 @@ export const dict = {
     works: {
       title: "Værker",
       intro:
-        "En samling af nylige værker i olie og blæk. For henvendelser om køb eller udstilling, skriv til kunstneren.",
+        "En samling af nyere værker i olie og blæk. For henvendelser om køb eller udstilling bedes du skrive direkte til kunstneren.",
       medium: "Teknik",
       year: "År",
       dimensions: "Mål",
@@ -39,10 +40,15 @@ export const dict = {
       title: "Om kunstneren",
       instagram: "Følg på Instagram",
     },
+    exhibitions: {
+      title: "Udstillinger",
+      intro:
+        "Udvalgte soloudstillinger og gruppeudstillinger — i kronologisk rækkefølge.",
+    },
     press: {
       title: "Presse",
       intro:
-        "Udvalgte artikler og omtaler om kunstneren og hans arbejde.",
+        "Udvalgte artikler og omtaler af kunstneren og hans arbejde.",
       readArticle: "Læs artiklen",
     },
     contact: {
@@ -66,6 +72,7 @@ export const dict = {
     nav: {
       works: "Works",
       about: "About",
+      exhibitions: "Exhibitions",
       press: "Press",
       contact: "Contact",
     },
@@ -98,6 +105,11 @@ export const dict = {
       title: "About the artist",
       instagram: "Follow on Instagram",
     },
+    exhibitions: {
+      title: "Exhibitions",
+      intro:
+        "Selected solo and group exhibitions — in chronological order.",
+    },
     press: {
       title: "Press",
       intro:
@@ -129,10 +141,10 @@ export function t(locale: Locale) {
 
 export const aboutText: Record<Locale, string[]> = {
   da: [
-    "Oliver Lyster (f. 1998) er klassisk uddannet oliemaler, og hans kunstneriske rejse begyndte i Helsingør, hvor han voksede op i roen fra det omkringliggende landskab. Naturen har fulgt ham fra barnsben og givet ham en dyb sans for lys, stemning og form — kvaliteter, der stadig præger hans arbejde i dag.",
-    "Lyster arbejder primært i olie og maler landskaber, portrætter og stilleben med rod i de gamle mestres tradition, hvis teknikker og tankegang han har studeret siden begyndelsen af sin karriere. Hans værker bærer præg af klassisk håndværk kombineret med en stille, iagttagende tilgang til den natur, han gengiver.",
-    "Han er uddannet ved Swedish Academy of Realist Art, hvor han forfinede sit tekniske fundament, og fortsatte siden sin oplæring hos den amerikanske maler Charles Weed. Disse formative år forankrede hans dedikation til realismen og til de traditionelle malemetoders disciplin.",
-    "I dag bor Lyster på landet på Fyn, hvor han kombinerer sit kunstneriske virke med deltidsarbejde som graver. Den dobbelthed — mellem skabelse og forgængelighed — ligger stille og mærkbart under hans malerier.",
+    "Oliver Lyster (f. 1998) er klassisk uddannet oliemaler, og hans kunstneriske rejse begyndte i Helsingør, hvor han voksede op omgivet af det stille landskab. Naturen har fulgt ham fra barnsben og givet ham en dyb sans for lys, stemning og form — kvaliteter, der stadig præger hans arbejde i dag.",
+    "Lyster arbejder primært i olie og maler landskaber, portrætter og stillebener med rod i de gamle mestres tradition, hvis teknikker og tankegang han har studeret siden begyndelsen af sin karriere. Hans værker bærer præg af klassisk håndværk kombineret med en stille, iagttagende tilgang til den natur, han gengiver.",
+    "Han er uddannet ved Swedish Academy of Realist Art, hvor han forfinede sit tekniske fundament, og fortsatte derefter sin oplæring hos den amerikanske maler Charles Weed. Disse formative år forankrede hans dedikation til realismen og til de traditionelle malemetoders disciplin.",
+    "I dag bor Lyster på landet på Fyn, hvor han kombinerer sit kunstneriske virke med deltidsarbejde som graver. Denne dobbelthed — mellem skabelse og forgængelighed — ligger stille og mærkbart under hans malerier.",
   ],
   en: [
     "Oliver Lyster (b. 1998) is a traditionally trained oil painter whose artistic journey began in Helsingør, where he was raised in the quiet stillness of the surrounding countryside. Immersed in nature from an early age, he developed a deep sensitivity to light, atmosphere, and form — elements that continue to shape his work today.",

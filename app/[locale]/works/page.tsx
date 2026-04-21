@@ -50,7 +50,7 @@ function Collection({
           const offsetCols = globalIndex % 3;
           return (
             <Rise key={a.slug} as="li" variant="curtain" delay={60}>
-              <Link href={`/${L}/works/${a.slug}`} className="group block">
+              <Link href={`/${L}/works/${a.slug}`} className="group paper-flutter block">
                 <div className="grid grid-cols-12 gap-4 md:gap-8">
                   <div
                     className={`col-span-12 ${
