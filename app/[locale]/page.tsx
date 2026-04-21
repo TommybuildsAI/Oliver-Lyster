@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
 import { artworks } from "@/lib/artworks";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, t, type Locale } from "@/lib/i18n";
 
 export default async function Home({
   params,
@@ -13,27 +14,60 @@ export default async function Home({
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
   const L = locale as Locale;
+  const d = t(L);
 
   const hero = artworks.find((a) => a.slug === "contemplation")!;
 
   return (
     <section className="relative">
-      <div className="mx-auto flex min-h-[calc(100vh-160px)] max-w-[1400px] items-center justify-center px-6 py-12 md:px-12 md:py-16">
+      <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
+        {/* Text column — lead + CTAs (title removed per artist's request) */}
+        <div className="col-span-12 order-1 md:col-span-5 lg:col-span-4">
+          <Rise
+            as="p"
+            delay={200}
+            className="body-serif text-base md:pr-2 md:text-lg"
+          >
+            {d.home.lead}
+          </Rise>
+
+          <Rise
+            as="div"
+            delay={400}
+            className="mt-10 flex flex-col gap-4 md:mt-12"
+          >
+            <Link
+              href={`/${L}/works`}
+              className="smallcaps text-sm link-underline self-start md:text-base lg:text-[1.05rem]"
+              data-active="true"
+            >
+              — {d.home.viewWorks}
+            </Link>
+            <Link
+              href={`/${L}/about`}
+              className="smallcaps text-sm link-underline self-start text-graphite md:text-base lg:text-[1.05rem]"
+            >
+              — {d.home.readAbout}
+            </Link>
+          </Rise>
+        </div>
+
+        {/* Hero painting — dominant, breathing, parallax to cursor */}
         <Rise
           as="figure"
           variant="curtain"
           delay={120}
-          className="w-full"
+          className="col-span-12 order-2 mt-12 md:col-span-7 md:mt-0 lg:col-span-8"
         >
           <HeroParallax strength={6}>
-            <div className="relative mx-auto w-full max-w-[720px] overflow-hidden md:max-w-[640px]">
+            <div className="relative mx-auto w-full overflow-hidden md:max-w-[78%]">
               <Image
                 src={hero.image}
                 alt={hero.title[L]}
                 width={1400}
                 height={1800}
                 priority
-                sizes="(min-width: 1024px) 640px, (min-width: 768px) 70vw, 90vw"
+                sizes="(min-width: 1024px) 50vw, (min-width: 768px) 44vw, 100vw"
                 className="kenburns h-auto w-full"
               />
             </div>
