@@ -29,12 +29,12 @@ export function Header({
         Oliver Lyster
       </Link>
 
-      <ul className="col-span-2 row-start-2 flex flex-nowrap items-center gap-x-5 overflow-x-auto md:col-span-1 md:col-start-2 md:row-start-1 md:justify-center md:gap-x-7 lg:gap-x-10">
+      <ul className="col-span-2 row-start-2 flex flex-wrap items-center gap-x-5 gap-y-2 md:col-span-1 md:col-start-2 md:row-start-1 md:flex-nowrap md:justify-center md:gap-x-7 lg:gap-x-10">
         {nav.map((item) => {
           const active = stripped.startsWith(item.match);
           const label = locale === "da" ? item.labelDa : item.labelEn;
           return (
-            <li key={item.href} className="shrink-0">
+            <li key={item.href} className="md:shrink-0">
               <Link
                 href={item.href}
                 className="smallcaps text-sm link-underline md:text-[0.95rem] lg:text-[1.05rem]"
