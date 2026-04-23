@@ -28,7 +28,7 @@ export default async function Home({
           <Rise
             as="p"
             delay={200}
-            className="body-serif text-base md:pr-2 md:text-lg"
+            className="body-serif text-lg md:pr-2 md:text-xl lg:text-2xl"
           >
             {d.home.lead}
           </Rise>
@@ -36,18 +36,18 @@ export default async function Home({
           <Rise
             as="div"
             delay={400}
-            className="mt-10 flex flex-col gap-4 md:mt-12"
+            className="mt-10 flex flex-col gap-5 md:mt-12"
           >
             <Link
               href={`/${L}/works`}
-              className="smallcaps text-sm link-underline self-start md:text-base lg:text-[1.05rem]"
+              className="smallcaps text-base link-underline self-start md:text-lg lg:text-xl"
               data-active="true"
             >
               — {d.home.viewWorks}
             </Link>
             <Link
               href={`/${L}/about`}
-              className="smallcaps text-sm link-underline self-start text-graphite md:text-base lg:text-[1.05rem]"
+              className="smallcaps text-base link-underline self-start text-graphite md:text-lg lg:text-xl"
             >
               — {d.home.readAbout}
             </Link>

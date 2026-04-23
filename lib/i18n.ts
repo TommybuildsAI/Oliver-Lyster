@@ -141,7 +141,7 @@ export function t(locale: Locale) {
 
 export const aboutText: Record<Locale, string[]> = {
   da: [
-    "Oliver Lyster (f. 1998) er klassisk uddannet oliemaler, og hans kunstneriske rejse begyndte i Helsingør, hvor han voksede op omgivet af det stille landskab. Naturen har fulgt ham fra barnsben og givet ham en dyb sans for lys, stemning og form — kvaliteter, der stadig præger hans arbejde i dag.",
+    "Oliver Lyster (f. 1998) er klassisk uddannet oliemaler. Hans kunstneriske rejse begyndte i Helsingør, hvor han voksede op omgivet af det stille landskab. Naturen har fulgt ham fra barnsben og givet ham en dyb sans for lys, stemning og form — kvaliteter, der stadig præger hans arbejde i dag.",
     "Lyster arbejder primært i olie og maler landskaber, portrætter og stillebener med rod i de gamle mestres tradition, hvis teknikker og tankegang han har studeret siden begyndelsen af sin karriere. Hans værker bærer præg af klassisk håndværk kombineret med en stille, iagttagende tilgang til den natur, han gengiver.",
     "Han er uddannet ved Swedish Academy of Realist Art, hvor han forfinede sit tekniske fundament, og fortsatte derefter sin oplæring hos den amerikanske maler Charles Weed. Disse formative år forankrede hans dedikation til realismen og til de traditionelle malemetoders disciplin.",
     "I dag bor Lyster på landet på Fyn, hvor han kombinerer sit kunstneriske virke med deltidsarbejde som graver. Denne dobbelthed — mellem skabelse og forgængelighed — ligger stille og mærkbart under hans malerier.",

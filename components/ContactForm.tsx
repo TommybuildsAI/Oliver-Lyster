@@ -30,9 +30,9 @@ export function ContactForm({
   }
 
   const label =
-    "smallcaps text-[0.8rem] text-graphite md:text-[0.9rem]";
+    "smallcaps text-sm text-graphite md:text-base";
   const field =
-    "mt-3 w-full border-0 border-b border-rule bg-transparent py-3 font-serif text-lg focus:border-ink focus:outline-none placeholder:text-graphite/50 md:text-xl";
+    "mt-3 w-full border-0 border-b border-rule bg-transparent py-3 font-serif text-xl focus:border-ink focus:outline-none placeholder:text-graphite/50 md:text-2xl";
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-8">
@@ -66,7 +66,7 @@ export function ContactForm({
       </div>
       <button
         type="submit"
-        className="smallcaps self-start text-sm link-underline md:text-base lg:text-[1.05rem]"
+        className="smallcaps self-start text-base link-underline md:text-lg lg:text-xl"
         data-active="true"
       >
         — {d.contact.send}

@@ -1,14 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
 
-export function Header({
-  locale,
-  pathname = "",
-}: {
-  locale: Locale;
-  pathname?: string;
-}) {
+export function Header({ locale }: { locale: Locale }) {
+  const pathname = usePathname() ?? "";
   const stripped = pathname.replace(/^\/(da|en)/, "") || "/";
 
   const nav = [
