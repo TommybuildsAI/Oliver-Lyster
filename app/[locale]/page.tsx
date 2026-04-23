@@ -19,7 +19,7 @@ export default async function Home({
   const hero = artworks.find((a) => a.slug === "contemplation")!;
 
   return (
-    <section className="relative">
+    <section className="relative pb-24 md:pb-32">
       <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
         {/* Text column — lead + CTAs (title removed per artist's request) */}
         <div className="col-span-12 order-1 md:col-span-5 lg:col-span-4">
@@ -74,6 +74,20 @@ export default async function Home({
           </HeroParallax>
         </Rise>
       </div>
+
+      <Rise
+        as="div"
+        delay={500}
+        className="mt-16 flex justify-center px-6 md:mt-24 md:px-12"
+      >
+        <Link
+          href={`/${L}/works`}
+          className="smallcaps text-sm link-underline md:text-base lg:text-[1.05rem]"
+          data-active="true"
+        >
+          — {d.home.all}
+        </Link>
+      </Rise>
     </section>
   );
 }
