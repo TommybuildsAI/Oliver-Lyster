@@ -46,8 +46,10 @@ export function ScribbleLink({
 
   return (
     <Link href={href} className={`inline-block ${className}`}>
-      <span ref={ref} className="relative inline-block pr-[0.15em]">
-        <span className={`scribble-text inline-block ${drawn ? "is-drawn" : ""}`}>
+      <span ref={ref} className="relative inline-block">
+        <span
+          className={`scribble-text inline-block pr-[0.25em] ${drawn ? "is-drawn" : ""}`}
+        >
           {children}
         </span>
         <svg
