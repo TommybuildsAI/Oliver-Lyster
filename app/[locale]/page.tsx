@@ -83,7 +83,7 @@ export default async function Home({
       >
         <ScribbleLink
           href={`/${L}/works`}
-          className="display-serif text-3xl italic tracking-tight md:text-5xl lg:text-6xl"
+          className="display-serif text-2xl italic tracking-tight md:text-3xl lg:text-[2.4rem]"
         >
           {d.home.all}
         </ScribbleLink>
