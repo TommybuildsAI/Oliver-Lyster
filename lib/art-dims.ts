@@ -25,7 +25,7 @@ export const artDims: Record<string, { w: number; h: number }> = {
   "/art/19-landscape-study.jpg": { w: 4289, h: 3063 },
   "/art/20-girl-and-oak.jpg": { w: 767, h: 1090 },
   "/art/21-figures-old-tree.jpg": { w: 1896, h: 2729 },
-  "/art/22-edge-of-forest.jpg": { w: 1735, h: 2477 },
+  "/art/22-edge-of-forest.jpg": { w: 2042, h: 2701 },
   "/art/23-willows.jpg": { w: 932, h: 607 },
   "/art/24-old-tree.jpg": { w: 844, h: 578 },
   "/art/25-pastoral-scene.jpg": { w: 2162, h: 2073 },
