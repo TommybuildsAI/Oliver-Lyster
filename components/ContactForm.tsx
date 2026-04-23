@@ -30,7 +30,7 @@ export function ContactForm({
   }
 
   const label =
-    "smallcaps text-base text-graphite md:text-lg lg:text-xl";
+    "smallcaps font-semibold text-base text-ink md:text-lg lg:text-xl";
   const field =
     "mt-3 w-full border-0 border-b border-rule bg-transparent py-3 font-serif text-xl focus:border-ink focus:outline-none placeholder:text-graphite/50 md:text-2xl";
 
