@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
+import { HeroSignature } from "@/components/HeroSignature";
 import { ScribbleLink } from "@/components/ScribbleLink";
 import { artworks } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
@@ -84,6 +85,9 @@ export default async function Home({
               />
             </div>
           </HeroParallax>
+          <div className="mx-auto md:max-w-[78%]">
+            <HeroSignature delay={1600} />
+          </div>
         </Rise>
       </div>
 
