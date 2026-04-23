@@ -35,6 +35,7 @@ export const dict = {
       back: "Tilbage til værker",
       paintings: "Malerier",
       drawings: "Tegninger",
+      top: "Toppen",
     },
     about: {
       title: "Om kunstneren",
@@ -99,6 +100,7 @@ export const dict = {
       back: "Back to works",
       paintings: "Paintings",
       drawings: "Drawings",
+      top: "Top",
     },
     about: {
       title: "About the artist",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
+import { BackToTop } from "@/components/BackToTop";
 import { paintings, drawings, type Artwork } from "@/lib/artworks";
 import { locales, t, type Locale } from "@/lib/i18n";
 
@@ -182,6 +183,8 @@ export default async function Works({
         locale={L}
         startIndex={paintings.length}
       />
+
+      <BackToTop label={d.works.top} />
     </div>
   );
 }
