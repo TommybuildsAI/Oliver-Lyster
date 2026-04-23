@@ -20,6 +20,16 @@ export default async function Home({
 
   const hero = artworks.find((a) => a.slug === "contemplation")!;
 
+  const teaserSlugs = [
+    "storm-coming",
+    "twisted-willow",
+    "filip",
+    "memories-of-autumn",
+  ];
+  const teasers = teaserSlugs
+    .map((slug) => artworks.find((a) => a.slug === slug))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a));
+
   return (
     <section className="relative pb-24 md:pb-32">
       <div className="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-6 px-6 pt-8 md:items-center md:gap-x-10 md:px-12 md:pt-16">
@@ -77,10 +87,78 @@ export default async function Home({
         </Rise>
       </div>
 
+      {/* Teaser works — asymmetric like the Works page */}
+      <div className="mx-auto mt-28 max-w-[1400px] px-6 md:mt-40 md:px-12">
+        <ol className="flex flex-col gap-24 md:gap-36">
+          {teasers.map((a, i) => {
+            const isWide = a.orientation !== "portrait";
+            const offsetCols = i % 3;
+            const dims = dimsFor(a.image);
+            return (
+              <Rise key={a.slug} as="li" variant="curtain" delay={60}>
+                <Link
+                  href={`/${L}/works/${a.slug}`}
+                  className="group paper-flutter block"
+                >
+                  <div className="grid grid-cols-12 gap-4 md:gap-8">
+                    <div
+                      className={`col-span-12 ${
+                        isWide
+                          ? offsetCols === 0
+                            ? "md:col-span-10 md:col-start-2"
+                            : offsetCols === 1
+                            ? "md:col-span-9 md:col-start-1"
+                            : "md:col-span-8 md:col-start-4"
+                          : offsetCols === 0
+                          ? "md:col-span-6 md:col-start-3"
+                          : offsetCols === 1
+                          ? "md:col-span-7 md:col-start-5"
+                          : "md:col-span-5 md:col-start-2"
+                      }`}
+                    >
+                      <figure>
+                        <div className="relative overflow-hidden">
+                          <Image
+                            src={a.image}
+                            alt={a.title[L]}
+                            width={dims.w}
+                            height={dims.h}
+                            sizes={
+                              isWide
+                                ? "(min-width: 768px) 75vw, 100vw"
+                                : "(min-width: 768px) 45vw, 100vw"
+                            }
+                            className="h-auto w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.2,0.6,0.1,1)] group-hover:scale-[1.01]"
+                          />
+                        </div>
+                        <figcaption className="mt-5 flex flex-wrap items-baseline justify-between gap-4 md:mt-6">
+                          <span className="flex items-baseline gap-4">
+                            <span className="smallcaps text-[0.7rem] text-graphite">
+                              № {String(a.number).padStart(2, "0")}
+                            </span>
+                            <span className="font-serif italic soft-morph text-lg md:text-xl">
+                              {a.title[L]}
+                            </span>
+                          </span>
+                          <span className="smallcaps text-[0.7rem] text-graphite">
+                            {a.medium[L]} · {a.year ?? "—"}
+                          </span>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </Link>
+              </Rise>
+            );
+          })}
+        </ol>
+      </div>
+
+      {/* Alle værker CTA — placed below the teasers */}
       <Rise
         as="div"
-        delay={500}
-        className="mt-20 flex justify-center px-6 md:mt-28 md:px-12"
+        delay={200}
+        className="mt-28 flex justify-center px-6 md:mt-40 md:px-12"
       >
         <ScribbleLink
           href={`/${L}/works`}

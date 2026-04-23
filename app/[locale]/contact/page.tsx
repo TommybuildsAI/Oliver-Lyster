@@ -48,30 +48,30 @@ export default async function Contact({
           as="section"
           className="col-span-12 md:col-span-4 md:col-start-2"
         >
-          <p className="body-serif text-lg text-ink-soft md:text-xl lg:text-2xl">
+          <p className="body-serif text-base text-ink-soft md:text-lg">
             {d.contact.intro}
           </p>
 
-          <div className="mt-12 flex flex-col gap-6 border-t border-rule pt-8">
+          <div className="mt-12 flex flex-col gap-5 border-t border-rule pt-6">
             <div>
-              <p className="smallcaps text-sm text-graphite md:text-base">
+              <p className="smallcaps text-[0.8rem] text-graphite md:text-[0.9rem]">
                 {d.contact.preferEmail}
               </p>
               <a
                 href={`mailto:${email}`}
-                className="mt-4 font-serif italic text-2xl link-underline md:text-3xl lg:text-4xl"
+                className="mt-3 font-serif italic text-xl link-underline md:text-2xl"
                 data-active="true"
               >
                 {email}
               </a>
             </div>
             <div>
-              <p className="smallcaps text-sm text-graphite md:text-base">Instagram</p>
+              <p className="smallcaps text-[0.8rem] text-graphite md:text-[0.9rem]">Instagram</p>
               <a
                 href="https://www.instagram.com/oliverlyster/"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 font-serif italic text-2xl link-underline md:text-3xl lg:text-4xl"
+                className="mt-3 font-serif italic text-xl link-underline md:text-2xl"
                 data-active="true"
               >
                 @oliverlyster
