@@ -84,12 +84,12 @@ export default async function About({
             ))}
           </div>
 
-          <div className="mt-12 border-t border-rule pt-6">
+          <div className="mt-12 border-t border-rule pt-8">
             <a
               href="https://www.instagram.com/oliverlyster/"
               target="_blank"
               rel="noreferrer"
-              className="smallcaps text-xs link-underline"
+              className="smallcaps text-xl link-underline md:text-2xl lg:text-3xl"
               data-active="true"
             >
               — {d.about.instagram} ↗
