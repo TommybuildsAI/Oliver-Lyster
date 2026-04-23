@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Link whose text reveals itself left-to-right with a soft-edged mask,
- * as if a pen were writing each glyph. The edge of the reveal is a
- * gradient (not a hard line) to feel ink-on-paper, not a sliding curtain.
+ * Link whose text reveals left-to-right via a soft-edged mask (as if a
+ * pen were laying down the glyphs), and once the text finishes writing,
+ * a hand-drawn SVG underline scribbles itself in beneath it.
  */
 export function ScribbleLink({
   href,
@@ -19,6 +19,7 @@ export function ScribbleLink({
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [drawn, setDrawn] = useState(false);
+  const [underlined, setUnderlined] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -28,6 +29,10 @@ export function ScribbleLink({
         for (const e of entries) {
           if (e.isIntersecting) {
             setDrawn(true);
+            // Start underline after the text mask has finished sweeping.
+            // Text transition is 2800ms — add a small beat so the pen
+            // "lifts" before tracing the line.
+            window.setTimeout(() => setUnderlined(true), 2900);
             obs.disconnect();
           }
         }
@@ -42,9 +47,35 @@ export function ScribbleLink({
     <Link href={href} className={`inline-block ${className}`}>
       <span
         ref={ref}
-        className={`scribble-text inline-block ${drawn ? "is-drawn" : ""}`}
+        className={`relative inline-block ${drawn ? "scribble-text is-drawn" : "scribble-text"}`}
       >
         {children}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 300 24"
+          preserveAspectRatio="none"
+          className="pointer-events-none absolute -bottom-2 left-0 h-[0.45em] w-full md:-bottom-3"
+        >
+          <path
+            d="M 4 12 C 30 6, 60 16, 96 10 S 160 18, 196 11 S 258 18, 296 10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`scribble-path ${underlined ? "is-drawn" : ""}`}
+          />
+          <path
+            d="M 8 14 C 36 9, 72 18, 108 12 S 172 19, 208 12 S 264 18, 292 12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.7"
+            strokeOpacity="0.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`scribble-path-2 ${underlined ? "is-drawn" : ""}`}
+          />
+        </svg>
       </span>
     </Link>
   );

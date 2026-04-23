@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { artworks, getArtwork } from "@/lib/artworks";
+import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
@@ -75,8 +76,8 @@ export default async function Work({
             <Image
               src={a.image}
               alt={a.title[L]}
-              width={2000}
-              height={a.orientation === "portrait" ? 2500 : 1500}
+              width={dimsFor(a.image).w}
+              height={dimsFor(a.image).h}
               priority
               sizes="(min-width: 768px) 66vw, 100vw"
               className="h-auto w-full"

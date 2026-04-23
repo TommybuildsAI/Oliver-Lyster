@@ -5,6 +5,7 @@ import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
 import { ScribbleLink } from "@/components/ScribbleLink";
 import { artworks } from "@/lib/artworks";
+import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 
 export default async function Home({
@@ -65,8 +66,8 @@ export default async function Home({
               <Image
                 src={hero.image}
                 alt={hero.title[L]}
-                width={1400}
-                height={1800}
+                width={dimsFor(hero.image).w}
+                height={dimsFor(hero.image).h}
                 priority
                 sizes="(min-width: 1024px) 50vw, (min-width: 768px) 44vw, 100vw"
                 className="kenburns h-auto w-full"

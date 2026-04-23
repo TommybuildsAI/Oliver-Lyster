@@ -381,10 +381,33 @@ html {
   initial-value: 0%;
 }
 
+/* Underline stroke animation — runs after the text reveal finishes */
+.scribble-path {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1400ms cubic-bezier(0.4, 0.1, 0.4, 1);
+}
+.scribble-path.is-drawn {
+  stroke-dashoffset: 0;
+}
+.scribble-path-2 {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1700ms cubic-bezier(0.4, 0.1, 0.4, 1) 500ms;
+}
+.scribble-path-2.is-drawn {
+  stroke-dashoffset: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scribble-text {
     -webkit-mask-image: none;
     mask-image: none;
+    transition: none;
+  }
+  .scribble-path,
+  .scribble-path-2 {
+    stroke-dashoffset: 0;
     transition: none;
   }
 }

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { BackToTop } from "@/components/BackToTop";
 import { paintings, drawings, type Artwork } from "@/lib/artworks";
+import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -49,6 +50,7 @@ function Collection({
           const globalIndex = startIndex + i;
           const isWide = a.orientation !== "portrait";
           const offsetCols = globalIndex % 3;
+          const dims = dimsFor(a.image);
           return (
             <Rise key={a.slug} as="li" variant="curtain" delay={60}>
               <Link href={`/${L}/works/${a.slug}`} className="group paper-flutter block">
@@ -62,10 +64,10 @@ function Collection({
                           ? "md:col-span-9 md:col-start-1"
                           : "md:col-span-8 md:col-start-4"
                         : offsetCols === 0
-                        ? "md:col-span-5 md:col-start-3"
+                        ? "md:col-span-6 md:col-start-3"
                         : offsetCols === 1
-                        ? "md:col-span-6 md:col-start-6"
-                        : "md:col-span-4 md:col-start-2"
+                        ? "md:col-span-7 md:col-start-5"
+                        : "md:col-span-5 md:col-start-2"
                     }`}
                   >
                     <figure>
@@ -73,18 +75,12 @@ function Collection({
                         <Image
                           src={a.image}
                           alt={a.title[L]}
-                          width={1600}
-                          height={
-                            a.orientation === "portrait"
-                              ? 2000
-                              : a.orientation === "square"
-                              ? 1600
-                              : 1200
-                          }
+                          width={dims.w}
+                          height={dims.h}
                           sizes={
                             isWide
                               ? "(min-width: 768px) 75vw, 100vw"
-                              : "(min-width: 768px) 40vw, 100vw"
+                              : "(min-width: 768px) 45vw, 100vw"
                           }
                           className="h-auto w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.2,0.6,0.1,1)] group-hover:scale-[1.01]"
                         />
