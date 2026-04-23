@@ -23,7 +23,7 @@ export function BackToTop({
       type="button"
       aria-label={label}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-8 right-8 z-30 smallcaps text-xs md:text-sm link-underline transition-opacity duration-500 ease-out ${
+      className={`fixed bottom-10 right-10 z-30 smallcaps text-base md:text-lg lg:text-xl link-underline transition-opacity duration-500 ease-out ${
         visible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
       data-active="true"
