@@ -372,7 +372,7 @@ html {
   --scribble-pos: 0%;
 }
 .scribble-text.is-drawn {
-  --scribble-pos: 115%;
+  --scribble-pos: 125%;
 }
 
 @property --scribble-pos {

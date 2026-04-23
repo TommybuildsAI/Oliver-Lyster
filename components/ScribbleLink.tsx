@@ -7,6 +7,9 @@ import { useEffect, useRef, useState } from "react";
  * Link whose text reveals left-to-right via a soft-edged mask (as if a
  * pen were laying down the glyphs), and once the text finishes writing,
  * a hand-drawn SVG underline scribbles itself in beneath it.
+ *
+ * Structure: <Link> > <span.wrap> > <span.scribble-text> + <svg>
+ * The SVG sits OUTSIDE the masked span so the mask doesn't hide it.
  */
 export function ScribbleLink({
   href,
@@ -29,9 +32,7 @@ export function ScribbleLink({
         for (const e of entries) {
           if (e.isIntersecting) {
             setDrawn(true);
-            // Start underline after the text mask has finished sweeping.
-            // Text transition is 2800ms — add a small beat so the pen
-            // "lifts" before tracing the line.
+            // Underline starts just after the mask finishes sweeping.
             window.setTimeout(() => setUnderlined(true), 2900);
             obs.disconnect();
           }
@@ -45,11 +46,10 @@ export function ScribbleLink({
 
   return (
     <Link href={href} className={`inline-block ${className}`}>
-      <span
-        ref={ref}
-        className={`relative inline-block ${drawn ? "scribble-text is-drawn" : "scribble-text"}`}
-      >
-        {children}
+      <span ref={ref} className="relative inline-block pr-[0.15em]">
+        <span className={`scribble-text inline-block ${drawn ? "is-drawn" : ""}`}>
+          {children}
+        </span>
         <svg
           aria-hidden="true"
           viewBox="0 0 300 24"
