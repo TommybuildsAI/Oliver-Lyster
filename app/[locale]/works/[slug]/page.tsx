@@ -60,7 +60,7 @@ export default async function Work({
       <Rise as="div" className="mb-8">
         <Link
           href={`/${L}/works`}
-          className="smallcaps text-[0.7rem] text-graphite link-underline"
+          className="smallcaps text-sm text-graphite link-underline md:text-base lg:text-lg"
         >
           ← {d.works.back}
         </Link>
@@ -90,7 +90,7 @@ export default async function Work({
           delay={200}
           className="col-span-12 md:col-span-3 md:col-start-10 md:self-center"
         >
-          <p className="smallcaps text-[0.7rem] text-graphite">
+          <p className="smallcaps text-sm text-graphite md:text-base">
             № {String(a.number).padStart(2, "0")}
           </p>
           <h1 className="display-serif mt-3 text-4xl italic md:text-5xl">
@@ -98,34 +98,34 @@ export default async function Work({
               {a.title[L]}
             </Rise>
           </h1>
-          <dl className="mt-10 flex flex-col gap-4 text-sm">
+          <dl className="mt-10 flex flex-col gap-5 text-base md:text-lg">
             <div>
-              <dt className="smallcaps text-[0.65rem] text-graphite">
+              <dt className="smallcaps text-xs text-graphite md:text-sm">
                 {d.works.medium}
               </dt>
-              <dd className="mt-1 font-serif">{a.medium[L]}</dd>
+              <dd className="mt-1.5 font-serif">{a.medium[L]}</dd>
             </div>
             {a.year && (
               <div>
-                <dt className="smallcaps text-[0.65rem] text-graphite">
+                <dt className="smallcaps text-xs text-graphite md:text-sm">
                   {d.works.year}
                 </dt>
-                <dd className="mt-1 font-serif">{a.year}</dd>
+                <dd className="mt-1.5 font-serif">{a.year}</dd>
               </div>
             )}
             {a.dimensions && (
               <div>
-                <dt className="smallcaps text-[0.65rem] text-graphite">
+                <dt className="smallcaps text-xs text-graphite md:text-sm">
                   {d.works.dimensions}
                 </dt>
-                <dd className="mt-1 font-serif">{a.dimensions}</dd>
+                <dd className="mt-1.5 font-serif">{a.dimensions}</dd>
               </div>
             )}
             <div>
-              <dt className="smallcaps text-[0.65rem] text-graphite">
+              <dt className="smallcaps text-xs text-graphite md:text-sm">
                 {d.works.availability}
               </dt>
-              <dd className="mt-1 font-serif">
+              <dd className="mt-1.5 font-serif">
                 {a.available ? d.works.available : d.works.sold}
               </dd>
             </div>
@@ -134,7 +134,7 @@ export default async function Work({
           {a.available && (
             <Link
               href={`/${L}/contact?subject=${inquireSubject}`}
-              className="smallcaps mt-10 inline-block text-xs link-underline"
+              className="smallcaps mt-10 inline-block text-sm link-underline md:text-base lg:text-lg"
               data-active="true"
             >
               — {d.works.inquire}
@@ -146,13 +146,13 @@ export default async function Work({
       <nav className="mt-32 flex items-baseline justify-between border-t border-rule pt-6 md:mt-48">
         <Link
           href={`/${L}/works/${prev.slug}`}
-          className="smallcaps text-[0.7rem] link-underline"
+          className="smallcaps text-sm link-underline md:text-base lg:text-lg"
         >
           ← {prev.title[L]}
         </Link>
         <Link
           href={`/${L}/works/${next.slug}`}
-          className="smallcaps text-[0.7rem] link-underline text-right"
+          className="smallcaps text-sm link-underline text-right md:text-base lg:text-lg"
         >
           {next.title[L]} →
         </Link>
