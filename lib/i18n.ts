@@ -80,7 +80,7 @@ export const dict = {
       signature: "Oliver Lyster",
       subtitle: "Painter. Funen, Denmark.",
       lead:
-        "Oil paintings in the classical tradition — landscapes, portraits, and still lifes, made after the example of the Old Masters.",
+        "Oil paintings in the classical tradition — landscapes, portraits, and still lifes, painted after the Old Masters.",
       viewWorks: "View works",
       readAbout: "Read about the artist",
       selected: "Selected works",
