@@ -348,3 +348,30 @@ html {
   letter-spacing: -0.005em;
   font-variation-settings: "opsz" 14;
 }
+
+/* Pen-scribble underline — strokes draw themselves once visible */
+.scribble-path {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1400ms cubic-bezier(0.22, 0.6, 0.18, 1);
+}
+.scribble-path.is-drawn {
+  stroke-dashoffset: 0;
+}
+.scribble-path-2 {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  transition: stroke-dashoffset 1800ms cubic-bezier(0.22, 0.6, 0.18, 1) 400ms;
+}
+.scribble-path-2.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scribble-path,
+  .scribble-path-2 {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+}
+

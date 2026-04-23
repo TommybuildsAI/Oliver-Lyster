@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
+import { ScribbleLink } from "@/components/ScribbleLink";
 import { artworks } from "@/lib/artworks";
 import { locales, t, type Locale } from "@/lib/i18n";
 
@@ -78,15 +79,14 @@ export default async function Home({
       <Rise
         as="div"
         delay={500}
-        className="mt-16 flex justify-center px-6 md:mt-24 md:px-12"
+        className="mt-20 flex justify-center px-6 md:mt-28 md:px-12"
       >
-        <Link
+        <ScribbleLink
           href={`/${L}/works`}
-          className="smallcaps text-sm link-underline md:text-base lg:text-[1.05rem]"
-          data-active="true"
+          className="display-serif text-3xl italic tracking-tight md:text-5xl lg:text-6xl"
         >
-          — {d.home.all}
-        </Link>
+          {d.home.all}
+        </ScribbleLink>
       </Rise>
     </section>
   );
