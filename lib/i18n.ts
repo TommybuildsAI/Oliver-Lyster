@@ -15,7 +15,7 @@ export const dict = {
       signature: "Oliver Lyster",
       subtitle: "Maler. Fyn, Danmark.",
       lead:
-        "Et kunstnerskab rodfæstet i den klassiske tradition — landskaber, portrætter og stillebener malet i olie, med respekt for de gamle mestres håndværk.",
+        "Oliemalerier i den klassiske tradition — landskaber, portrætter og stillebener, malet efter de gamle mestres forbilleder.",
       viewWorks: "Se værker",
       readAbout: "Læs om kunstneren",
       selected: "Udvalgte værker",
@@ -24,7 +24,7 @@ export const dict = {
     works: {
       title: "Værker",
       intro:
-        "En samling af nyere værker i olie og blæk. For henvendelser om køb eller udstilling bedes du skrive direkte til kunstneren.",
+        "Udvalgte nyere arbejder i olie og blæk. For henvendelser om køb eller udstilling, skriv direkte.",
       medium: "Teknik",
       year: "År",
       dimensions: "Mål",
@@ -42,8 +42,7 @@ export const dict = {
     },
     exhibitions: {
       title: "Udstillinger",
-      intro:
-        "Udvalgte soloudstillinger og gruppeudstillinger — i kronologisk rækkefølge.",
+      intro: "Udvalgte udstillinger.",
     },
     press: {
       title: "Presse",
@@ -80,7 +79,7 @@ export const dict = {
       signature: "Oliver Lyster",
       subtitle: "Painter. Funen, Denmark.",
       lead:
-        "A practice rooted in the classical tradition — landscapes, portraits, and still lifes in oil, made with respect for the craft of the Old Masters.",
+        "Oil paintings in the classical tradition — landscapes, portraits, and still lifes, made after the example of the Old Masters.",
       viewWorks: "View works",
       readAbout: "Read about the artist",
       selected: "Selected works",
@@ -89,7 +88,7 @@ export const dict = {
     works: {
       title: "Works",
       intro:
-        "A selection of recent works in oil and ink. For acquisition or exhibition enquiries, please write directly.",
+        "Selected recent works in oil and ink. For acquisitions or exhibition enquiries, write directly.",
       medium: "Medium",
       year: "Year",
       dimensions: "Dimensions",
@@ -107,8 +106,7 @@ export const dict = {
     },
     exhibitions: {
       title: "Exhibitions",
-      intro:
-        "Selected solo and group exhibitions — in chronological order.",
+      intro: "Selected exhibitions.",
     },
     press: {
       title: "Press",
