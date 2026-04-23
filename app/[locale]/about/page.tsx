@@ -89,7 +89,7 @@ export default async function About({
               href="https://www.instagram.com/oliverlyster/"
               target="_blank"
               rel="noreferrer"
-              className="smallcaps text-xl link-underline md:text-2xl lg:text-3xl"
+              className="smallcaps text-base link-underline md:text-lg lg:text-xl"
               data-active="true"
             >
               — {d.about.instagram} ↗
