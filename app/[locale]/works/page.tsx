@@ -39,8 +39,8 @@ function Collection({
         variant="drawline"
         className="mb-20 flex items-baseline justify-between pb-4 md:mb-32"
       >
-        <h2 className="smallcaps text-sm md:text-base">— {label}</h2>
-        <span className="smallcaps text-[0.7rem] text-graphite">
+        <h2 className="smallcaps text-xl md:text-2xl lg:text-3xl">— {label}</h2>
+        <span className="smallcaps text-xs text-graphite md:text-sm">
           {items.length}
         </span>
       </Rise>
