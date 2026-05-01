@@ -13,27 +13,6 @@ export type PressItem = {
 
 export const press: PressItem[] = [
   {
-    slug: "helsingor-dagblad-ensomt-menneske",
-    publication: "Helsingør Dagblad",
-    date: { en: "April 2, 2019", da: "2. april 2019" },
-    dateIso: "2019-04-02",
-    title: {
-      da: "Daniel, 20 år",
-      en: "Daniel, 20",
-    },
-    url: "https://helsingordagblad.dk/bolig-og-livsstil/daniel-20-aar-jeg-er-et-ensomt-menneske-med-et-utroligt-givende-liv",
-    excerpt: {
-      da: "Jeg er et ensomt menneske med et utroligt givende liv.",
-      en: "I am a lonely person with an incredibly rewarding life.",
-    },
-    image: "/press/helsingor-dagblad-ensomt-menneske.jpg",
-    imageDims: { w: 1920, h: 1280 },
-    imageAlt: {
-      da: "Oliver Lyster i sit atelier — fra Helsingør Dagblad",
-      en: "Oliver Lyster in his studio — from Helsingør Dagblad",
-    },
-  },
-  {
     slug: "ud-og-se-gode-gamle-dage",
     publication: "UD & SE",
     date: { en: "February 23, 2026", da: "23. februar 2026" },
@@ -52,6 +31,27 @@ export const press: PressItem[] = [
     imageAlt: {
       da: "Selvportræt af Oliver Lyster — fra UD & SE artiklen",
       en: "Self-portrait of Oliver Lyster — from the UD & SE feature",
+    },
+  },
+  {
+    slug: "helsingor-dagblad-ensomt-menneske",
+    publication: "Helsingør Dagblad",
+    date: { en: "April 2, 2019", da: "2. april 2019" },
+    dateIso: "2019-04-02",
+    title: {
+      da: "Daniel, 20 år",
+      en: "Daniel, 20",
+    },
+    url: "https://helsingordagblad.dk/bolig-og-livsstil/daniel-20-aar-jeg-er-et-ensomt-menneske-med-et-utroligt-givende-liv",
+    excerpt: {
+      da: "Jeg er et ensomt menneske med et utroligt givende liv.",
+      en: "I am a lonely person with an incredibly rewarding life.",
+    },
+    image: "/press/helsingor-dagblad-ensomt-menneske.jpg",
+    imageDims: { w: 1920, h: 1280 },
+    imageAlt: {
+      da: "Oliver Lyster i sit atelier — fra Helsingør Dagblad",
+      en: "Oliver Lyster in his studio — from Helsingør Dagblad",
     },
   },
 ];
