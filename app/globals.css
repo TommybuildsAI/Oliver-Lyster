@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #ece1c6;
-  --color-paper-deep: #e1d3af;
+  --color-paper: #95B495;
+  --color-paper-deep: #7e9d7e;
   --color-ink: #3b2a1a;
   --color-ink-soft: #523c28;
   --color-graphite: #7a5e42;
-  --color-rule: #c2ac82;
+  --color-rule: #7e9d7e;
 
   --font-serif: "Fraunces", ui-serif, Georgia, serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
@@ -41,57 +41,6 @@ body {
 ::selection {
   background: var(--color-ink);
   color: var(--color-paper);
-}
-
-/* Parchment — real scanned paper texture + corner vignette */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    /* Corner vignette — ages the edges */
-    radial-gradient(ellipse at center, transparent 50%, rgba(60, 40, 20, 0.14) 100%),
-    /* Real scanned parchment texture */
-    url("/textures/paper.jpg");
-  background-size:
-    100% 100%,
-    cover;
-  background-position:
-    center center,
-    center center;
-  background-repeat: no-repeat, no-repeat;
-  background-attachment: fixed, fixed;
-  z-index: 1;
-  mix-blend-mode: multiply;
-  opacity: 0.9;
-}
-
-/* Second layer: subtle diagonal fold creases, barely there */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(
-      112deg,
-      transparent 0%,
-      transparent 49.7%,
-      rgba(60, 40, 20, 0.03) 49.85%,
-      transparent 50%,
-      transparent 100%
-    ),
-    linear-gradient(
-      74deg,
-      transparent 0%,
-      transparent 33.7%,
-      rgba(60, 40, 20, 0.022) 33.85%,
-      transparent 34%,
-      transparent 100%
-    );
-  z-index: 1;
-  mix-blend-mode: multiply;
 }
 
 /* Link styling — literary underline */
