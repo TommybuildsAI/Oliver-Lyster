@@ -101,14 +101,14 @@ export default async function Home({
                         </div>
                         <figcaption className="mt-5 flex flex-wrap items-baseline justify-between gap-4 md:mt-6">
                           <span className="flex items-baseline gap-4">
-                            <span className="smallcaps text-[0.7rem] text-graphite">
+                            <span className="smallcaps text-sm text-graphite md:text-base">
                               № {String(a.number).padStart(2, "0")}
                             </span>
-                            <span className="font-serif italic soft-morph text-lg md:text-xl">
+                            <span className="font-serif italic soft-morph text-xl md:text-2xl lg:text-3xl">
                               {a.title[L]}
                             </span>
                           </span>
-                          <span className="smallcaps text-[0.7rem] text-graphite">
+                          <span className="smallcaps text-sm text-graphite md:text-base">
                             {a.medium[L]} · {a.year ?? "—"}
                           </span>
                         </figcaption>

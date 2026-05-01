@@ -10,9 +10,9 @@ export function LanguageToggle({
 }) {
   const suffix = stripped === "/" ? "" : stripped;
   const base =
-    "smallcaps text-[0.75rem] tracking-[0.2em] transition-colors md:text-[0.85rem] lg:text-[0.9rem]";
-  const active = "text-ink";
-  const inactive = "text-graphite/60 hover:text-ink";
+    "smallcaps text-[0.95rem] tracking-[0.2em] transition-colors md:text-[1.05rem] lg:text-[1.15rem]";
+  const active = "text-paper";
+  const inactive = "text-paper/55 hover:text-paper";
 
   return (
     <div
@@ -29,7 +29,7 @@ export function LanguageToggle({
       </Link>
       <span
         aria-hidden="true"
-        className="mx-2 h-2 w-px bg-rule"
+        className="mx-2 h-2 w-px bg-paper/40"
       />
       <Link
         href={`/en${suffix}`}
