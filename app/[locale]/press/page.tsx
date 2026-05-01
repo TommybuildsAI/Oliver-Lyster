@@ -55,8 +55,8 @@ export default async function Press({
                 <Image
                   src={item.image}
                   alt={item.imageAlt[L]}
-                  width={1200}
-                  height={615}
+                  width={item.imageDims.w}
+                  height={item.imageDims.h}
                   sizes="(min-width: 768px) 40vw, 100vw"
                   className="h-auto w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.2,0.6,0.1,1)] group-hover:scale-[1.012]"
                 />
