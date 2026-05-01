@@ -44,7 +44,7 @@ export const press: PressItem[] = [
     },
     url: "https://www.udogse.dk/gode-gamle-dage/",
     excerpt: {
-      da: "Selvom kunstig intelligens kan danne et kunstværk hurtigere, insisterer Oliver Lyster på at male med møjsommelig pensføring.",
+      da: "Selvom kunstig intelligens kan danne et kunstværk hurtigere, insisterer Oliver Lyster på at male med møjsommelig penselføring.",
       en: "Though artificial intelligence can generate a work of art faster, Oliver Lyster insists on painting with painstaking brushwork.",
     },
     image: "/press/ud-og-se-gode-gamle-dage.jpg",
