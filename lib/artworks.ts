@@ -78,18 +78,6 @@ export const artworks: Artwork[] = [
     category: "painting",
   },
   {
-    slug: "filip",
-    number: 6,
-    image: "/art/06-filip.jpg",
-    title: { en: "Filip", da: "Filip" },
-    medium: { en: "Oil on oak", da: "Olie på eg" },
-    year: "2026",
-    dimensions: null,
-    available: true,
-    orientation: "portrait",
-    category: "painting",
-  },
-  {
     slug: "shell-on-grey",
     number: 7,
     image: "/art/07-shell-grey-background.jpg",
@@ -423,7 +411,7 @@ export const artworks: Artwork[] = [
     dimensions: null,
     available: true,
     orientation: "landscape",
-    category: "drawing",
+    category: "painting",
   },
 ];
 
