@@ -36,6 +36,11 @@ export const artDims: Record<string, { w: number; h: number }> = {
   "/art/30-self-portrait-study.jpg": { w: 826, h: 911 },
   "/art/31-jackal-skull.jpg": { w: 1198, h: 1017 },
   "/art/32-memento-mori.jpg": { w: 2114, h: 1648 },
+  "/art/33-nude-studies.jpg": { w: 3600, h: 1905 },
+  "/art/34-self-portrait-circle.jpg": { w: 2091, h: 2374 },
+  "/art/35-relief-cast.jpg": { w: 2334, h: 1149 },
+  "/art/36-still-life-green-jar.jpg": { w: 5875, h: 3956 },
+  "/art/37-vanitas-skull-and-mug.jpg": { w: 4032, h: 3024 },
 };
 
 export function dimsFor(src: string) {
