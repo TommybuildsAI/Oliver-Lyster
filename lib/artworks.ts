@@ -411,7 +411,7 @@ export const artworks: Artwork[] = [
     dimensions: null,
     available: true,
     orientation: "landscape",
-    category: "painting",
+    category: "drawing",
   },
 ];
 
