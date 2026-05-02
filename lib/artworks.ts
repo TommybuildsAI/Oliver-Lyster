@@ -78,6 +78,18 @@ export const artworks: Artwork[] = [
     category: "painting",
   },
   {
+    slug: "a-young-woman",
+    number: 6,
+    image: "/art/06-a-young-woman.jpg",
+    title: { en: "A Young Woman", da: "En ung kvinde" },
+    medium: { en: "Oil on linen", da: "Olie på lærred" },
+    year: null,
+    dimensions: null,
+    available: true,
+    orientation: "portrait",
+    category: "painting",
+  },
+  {
     slug: "shell-on-grey",
     number: 7,
     image: "/art/07-shell-grey-background.jpg",

@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
+import { InstagramIcon } from "@/components/InstagramIcon";
 import { locales, t, aboutText, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
@@ -89,10 +90,15 @@ export default async function About({
               href="https://www.instagram.com/oliverlyster/"
               target="_blank"
               rel="noreferrer"
-              className="smallcaps text-base link-underline md:text-lg lg:text-xl"
-              data-active="true"
+              className="group inline-flex items-center gap-4"
             >
-              — {d.about.instagram} ↗
+              <InstagramIcon className="h-9 w-9 text-ink transition-opacity group-hover:opacity-70 md:h-11 md:w-11 lg:h-12 lg:w-12" />
+              <span
+                className="smallcaps text-base link-underline md:text-lg lg:text-xl"
+                data-active="true"
+              >
+                {d.about.instagram}
+              </span>
             </a>
           </div>
         </Rise>

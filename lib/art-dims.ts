@@ -9,6 +9,7 @@ export const artDims: Record<string, { w: number; h: number }> = {
   "/art/03-ginger-jar-moose-skull.jpg": { w: 4031, h: 2713 },
   "/art/04-storm-coming.jpg": { w: 3663, h: 2697 },
   "/art/05-midnight-with-trees.jpg": { w: 3530, h: 2217 },
+  "/art/06-a-young-woman.jpg": { w: 1080, h: 1392 },
   "/art/07-shell-grey-background.jpg": { w: 2430, h: 3461 },
   "/art/08-memories-of-autumn.jpg": { w: 3539, h: 2569 },
   "/art/09-twisted-willow.jpg": { w: 2887, h: 4032 },
