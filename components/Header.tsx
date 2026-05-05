@@ -39,7 +39,7 @@ export function Header({ locale }: { locale: Locale }) {
           className="h-12 w-auto md:h-14 lg:h-16"
         />
         <span
-          className="display-serif text-[1.7rem] tracking-tight md:text-[1.8rem] lg:text-[2.3rem]"
+          className="display-serif text-[1.4rem] tracking-tight sm:text-[1.7rem] md:text-[1.8rem] lg:text-[2.3rem]"
           style={{ fontVariationSettings: '"opsz" 48' }}
         >
           Oliver Lyster
