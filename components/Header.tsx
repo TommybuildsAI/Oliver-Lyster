@@ -5,6 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type Locale } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
+import { InstagramIcon } from "./InstagramIcon";
+import { EmailIcon } from "./EmailIcon";
+
+const CONTACT_EMAIL =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@oliverlyster.com";
 
 export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname() ?? "";
@@ -59,7 +64,23 @@ export function Header({ locale }: { locale: Locale }) {
         })}
       </ul>
 
-      <div className="col-start-2 row-start-1 justify-self-end md:col-start-3">
+      <div className="col-start-2 row-start-1 flex items-center gap-4 justify-self-end md:col-start-3 md:gap-5">
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          aria-label="Email"
+          className="text-ink transition-opacity hover:opacity-70"
+        >
+          <EmailIcon className="h-5 w-5 md:h-6 md:w-6" />
+        </a>
+        <a
+          href="https://www.instagram.com/oliverlyster/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+          className="text-ink transition-opacity hover:opacity-70"
+        >
+          <InstagramIcon className="h-5 w-5 md:h-6 md:w-6" />
+        </a>
         <LanguageToggle locale={locale} stripped={stripped} />
       </div>
     </header>
