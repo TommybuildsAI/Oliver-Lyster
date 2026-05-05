@@ -23,7 +23,7 @@ export const privacyText: Record<Locale, LegalDoc> = {
         heading: "1. Hvilke oplysninger indsamles?",
         body: [
           "Kontaktformular. Hjemmesidens kontaktformular åbner din egen e-mailklient med en forudfyldt besked. Når du sender beskeden, går den direkte fra din e-mail til Olivers indbakke. Hjemmesiden lagrer ikke dine oplysninger.",
-          "Server-logfiler. Hjemmesiden hostes hos Vercel Inc. (USA), som af sikkerheds- og driftsmæssige hensyn opretholder logfiler over besøg. Logs kan indeholde din IP-adresse, browsertype og tidspunkt for besøget. Disse logs slettes typisk efter 30 dage. Vercel overfører data til USA under EU-Kommissionens standardkontraktbestemmelser.",
+          "Server-logfiler. Hjemmesiden hostes hos Cloudflare (Cloudflare Pages), som af sikkerheds- og driftsmæssige hensyn opretholder netværks- og server-logfiler over besøg. Logs kan indeholde din IP-adresse, browsertype og tidspunkt for besøget. Disse logs opbevares i kort tid. Cloudflare har EU-baseret kant-infrastruktur; eventuel overførsel til USA (moderselskabet Cloudflare Inc.) sker efter EU-Kommissionens standardkontraktbestemmelser.",
           "Webanalyse. Hvis Google Analytics 4 er aktiveret på siden, indsamles anonymiseret information om dit besøg (sider du har set, varighed, omtrentlig geografisk placering ud fra IP-adresse, der anonymiseres før lagring). Detaljer findes i cookiepolitikken.",
         ],
       },
@@ -62,7 +62,7 @@ export const privacyText: Record<Locale, LegalDoc> = {
         heading: "1. What data is collected?",
         body: [
           "Contact form. The contact form opens your own email client with a pre-filled message. When you send it, the email goes directly from you to Oliver's inbox. The website does not store any of your data.",
-          "Server logs. The website is hosted by Vercel Inc. (USA), which maintains server logs for security and operational purposes. Logs may include your IP address, browser type, and visit timestamp. These are typically retained for under 30 days. Vercel transfers data to the United States under the European Commission's Standard Contractual Clauses.",
+          "Server logs. The website is hosted by Cloudflare (Cloudflare Pages), which maintains network and server logs for security and operational purposes. Logs may include your IP address, browser type, and visit timestamp. These are retained for a short period. Cloudflare operates EU-based edge infrastructure; any transfer to the United States (parent company Cloudflare Inc.) is made under the European Commission's Standard Contractual Clauses.",
           "Web analytics. If Google Analytics 4 is enabled on the site, anonymised information about your visit is collected (pages viewed, time on page, approximate region derived from your IP, which is anonymised before storage). See the cookie policy for details.",
         ],
       },
