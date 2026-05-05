@@ -11,7 +11,7 @@ export function ContactForm({
   initialSubject?: string;
 }) {
   const d = t(locale);
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@oliverlyster.com";
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "oliverdaniel.info@gmail.com";
   const [subject] = useState(initialSubject);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

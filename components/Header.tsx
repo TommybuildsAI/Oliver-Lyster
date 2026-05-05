@@ -9,7 +9,7 @@ import { InstagramIcon } from "./InstagramIcon";
 import { EmailIcon } from "./EmailIcon";
 
 const CONTACT_EMAIL =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@oliverlyster.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "oliverdaniel.info@gmail.com";
 
 export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname() ?? "";

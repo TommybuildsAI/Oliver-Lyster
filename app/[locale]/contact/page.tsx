@@ -26,7 +26,7 @@ export default async function Contact({
   const L = locale as Locale;
   const d = t(L);
 
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@oliverlyster.com";
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "oliverdaniel.info@gmail.com";
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
