@@ -30,6 +30,12 @@ export function Footer({ locale }: { locale: Locale }) {
             {d.nav.contact}
           </Link>
           <Link
+            href={`/${locale}/faq`}
+            className="smallcaps text-sm link-underline md:text-base"
+          >
+            {d.footer.faq}
+          </Link>
+          <Link
             href={`/${locale}/privacy`}
             className="smallcaps text-sm link-underline md:text-base"
           >

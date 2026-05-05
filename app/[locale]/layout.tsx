@@ -7,6 +7,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { JsonLd } from "@/components/JsonLd";
 import { HtmlLangSync } from "@/components/HtmlLangSync";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { press } from "@/lib/press";
 import { personSchema, websiteSchema } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -30,7 +31,7 @@ export default async function LocaleLayout({
       <SearchConsoleVerification />
       <ScrollProgress />
       <HtmlLangSync locale={L} />
-      <JsonLd data={[personSchema(), websiteSchema()]} />
+      <JsonLd data={[personSchema(press), websiteSchema()]} />
       <div className="flex min-h-screen flex-col">
         <Header locale={L} />
         <main className="relative z-10 flex-1">{children}</main>

@@ -67,6 +67,7 @@ export const dict = {
       site: "Hjemmeside af RiverAI",
       privacy: "Privatlivspolitik",
       cookies: "Cookies",
+      faq: "Spørgsmål",
     },
     cookieBanner: {
       message: "Vi bruger Google Analytics til anonym statistik.",
@@ -146,6 +147,7 @@ export const dict = {
       site: "Website by RiverAI",
       privacy: "Privacy",
       cookies: "Cookies",
+      faq: "FAQ",
     },
     cookieBanner: {
       message: "We use Google Analytics for anonymous statistics.",
