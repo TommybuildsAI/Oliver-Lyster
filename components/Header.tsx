@@ -25,13 +25,13 @@ export function Header({ locale }: { locale: Locale }) {
         className="relative z-0 col-start-1 flex w-fit max-w-full items-center gap-3 hover:opacity-70 transition-opacity md:gap-4"
       >
         <Image
-          src="/art/02-autoportrait-with-hat.jpg"
+          src="/logo-portrait.png"
           alt=""
-          width={64}
-          height={64}
+          width={229}
+          height={256}
           priority
-          sizes="64px"
-          className="h-10 w-10 rounded-full object-cover md:h-12 md:w-12 lg:h-14 lg:w-14"
+          sizes="56px"
+          className="h-12 w-auto md:h-14 lg:h-16"
         />
         <span
           className="display-serif text-[1.7rem] tracking-tight md:text-[1.8rem] lg:text-[2.3rem]"

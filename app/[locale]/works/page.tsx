@@ -8,6 +8,8 @@ import { paintings, drawings, type Artwork } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 
+type View = "gallery" | "grid";
+
 export async function generateMetadata({
   params,
 }: {
@@ -18,7 +20,7 @@ export async function generateMetadata({
   return { title: t(L).works.title };
 }
 
-function Collection({
+function GalleryCollection({
   items,
   label,
   anchor,
@@ -110,15 +112,89 @@ function Collection({
   );
 }
 
+function GridCollection({
+  items,
+  label,
+  anchor,
+  locale: L,
+}: {
+  items: Artwork[];
+  label: string;
+  anchor: string;
+  locale: Locale;
+}) {
+  if (items.length === 0) return null;
+  return (
+    <section id={anchor} className="mb-32 scroll-mt-24 md:mb-40">
+      <Rise
+        as="div"
+        variant="drawline"
+        className="mb-12 flex items-baseline justify-between pb-4 md:mb-16"
+      >
+        <h2 className="smallcaps text-xl md:text-2xl lg:text-3xl">— {label}</h2>
+        <span className="smallcaps text-xs text-graphite md:text-sm">
+          {items.length}
+        </span>
+      </Rise>
+
+      <ol className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16">
+        {items.map((a) => {
+          const dims = dimsFor(a.image);
+          return (
+            <Rise key={a.slug} as="li" variant="curtain" delay={60}>
+              <Link href={`/${L}/works/${a.slug}`} className="group paper-flutter block">
+                <figure>
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={a.image}
+                      alt={a.title[L]}
+                      width={dims.w}
+                      height={dims.h}
+                      sizes="(min-width: 768px) 30vw, 50vw"
+                      className="h-auto w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.2,0.6,0.1,1)] group-hover:scale-[1.01]"
+                    />
+                  </div>
+                  <figcaption className="mt-3 flex flex-col gap-1 md:mt-4">
+                    <span className="flex items-baseline gap-3">
+                      <span className="smallcaps text-[0.65rem] text-graphite">
+                        № {String(a.number).padStart(2, "0")}
+                      </span>
+                      <span className="font-serif italic soft-morph text-base md:text-lg">
+                        {a.title[L]}
+                      </span>
+                    </span>
+                    <span className="smallcaps text-[0.65rem] text-graphite md:text-[0.7rem]">
+                      {a.medium[L]} · {a.year ?? "—"}
+                    </span>
+                  </figcaption>
+                </figure>
+              </Link>
+            </Rise>
+          );
+        })}
+      </ol>
+    </section>
+  );
+}
+
 export default async function Works({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ view?: string }>;
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
   const L = locale as Locale;
   const d = t(L);
+  const { view: rawView } = await searchParams;
+  const view: View = rawView === "grid" ? "grid" : "gallery";
+
+  const labels = {
+    gallery: L === "da" ? "Galleri" : "Gallery",
+    grid: L === "da" ? "Gitter" : "Grid",
+  };
 
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
@@ -137,48 +213,83 @@ export default async function Works({
         </p>
       </Rise>
 
-      {/* Jump nav — two categories */}
+      {/* Jump nav + view toggle */}
       <Rise
         as="nav"
-        className="mb-24 flex items-baseline gap-8 md:mb-32 md:gap-12"
+        className="mb-24 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 md:mb-32"
         delay={200}
       >
-        <Link
-          href="#paintings"
-          className="smallcaps text-sm link-underline md:text-base"
-          data-active="true"
-        >
-          {d.works.paintings}
-          <span className="ml-2 text-graphite">
-            ({paintings.length})
-          </span>
-        </Link>
-        <Link
-          href="#drawings"
-          className="smallcaps text-sm link-underline md:text-base"
-          data-active="true"
-        >
-          {d.works.drawings}
-          <span className="ml-2 text-graphite">
-            ({drawings.length})
-          </span>
-        </Link>
+        <div className="flex items-baseline gap-8 md:gap-12">
+          <Link
+            href={`#paintings`}
+            className="smallcaps text-sm link-underline md:text-base"
+            data-active="true"
+          >
+            {d.works.paintings}
+            <span className="ml-2 text-graphite">({paintings.length})</span>
+          </Link>
+          <Link
+            href={`#drawings`}
+            className="smallcaps text-sm link-underline md:text-base"
+            data-active="true"
+          >
+            {d.works.drawings}
+            <span className="ml-2 text-graphite">({drawings.length})</span>
+          </Link>
+        </div>
+
+        <div className="flex items-baseline gap-4 md:gap-6">
+          <Link
+            href={`/${L}/works`}
+            className="smallcaps text-sm link-underline md:text-base"
+            data-active={view === "gallery" || undefined}
+          >
+            {labels.gallery}
+          </Link>
+          <span aria-hidden="true" className="text-graphite">·</span>
+          <Link
+            href={`/${L}/works?view=grid`}
+            className="smallcaps text-sm link-underline md:text-base"
+            data-active={view === "grid" || undefined}
+          >
+            {labels.grid}
+          </Link>
+        </div>
       </Rise>
 
-      <Collection
-        items={paintings}
-        label={d.works.paintings}
-        anchor="paintings"
-        locale={L}
-        startIndex={0}
-      />
-      <Collection
-        items={drawings}
-        label={d.works.drawings}
-        anchor="drawings"
-        locale={L}
-        startIndex={paintings.length}
-      />
+      {view === "grid" ? (
+        <>
+          <GridCollection
+            items={paintings}
+            label={d.works.paintings}
+            anchor="paintings"
+            locale={L}
+          />
+          <GridCollection
+            items={drawings}
+            label={d.works.drawings}
+            anchor="drawings"
+            locale={L}
+          />
+        </>
+      ) : (
+        <>
+          <GalleryCollection
+            items={paintings}
+            label={d.works.paintings}
+            anchor="paintings"
+            locale={L}
+            startIndex={0}
+          />
+          <GalleryCollection
+            items={drawings}
+            label={d.works.drawings}
+            anchor="drawings"
+            locale={L}
+            startIndex={paintings.length}
+          />
+        </>
+      )}
 
       <BackToTop label={d.works.top} />
     </div>
