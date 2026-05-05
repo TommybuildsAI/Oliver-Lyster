@@ -12,7 +12,6 @@ const STATIC_PATHS: Array<{ path: string; freq: ChangeFreq; priority: number }> 
   { path: "/exhibitions",  freq: "monthly", priority: 0.7 },
   { path: "/press",        freq: "monthly", priority: 0.7 },
   { path: "/contact",      freq: "yearly",  priority: 0.6 },
-  { path: "/faq",          freq: "yearly",  priority: 0.6 },
   { path: "/privacy",      freq: "yearly",  priority: 0.2 },
   { path: "/cookies",      freq: "yearly",  priority: 0.2 },
 ];

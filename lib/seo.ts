@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { Artwork } from "./artworks";
 import type { PressItem } from "./press";
-import type { FaqEntry } from "./faq";
 import type { Locale } from "./i18n";
 import { visualAltFor } from "./visual-alts";
 
@@ -215,24 +214,6 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
       position: i + 1,
       name: item.name,
       item: item.url,
-    })),
-  };
-}
-
-export function faqPageSchema(entries: FaqEntry[], locale: Locale) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "@id": `${SITE_URL}/${locale}/faq#faq`,
-    inLanguage: inLanguage(locale),
-    about: { "@id": `${SITE_URL}/#person` },
-    mainEntity: entries.map((e) => ({
-      "@type": "Question",
-      name: e.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: e.answer,
-      },
     })),
   };
 }
