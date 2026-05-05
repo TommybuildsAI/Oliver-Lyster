@@ -494,6 +494,36 @@ export const artworks: Artwork[] = [
     orientation: "landscape",
     category: "painting",
   },
+  {
+    slug: "duck-with-pipkin-pot",
+    number: 38,
+    image: "/art/38-duck-with-pipkin-pot.jpg",
+    title: {
+      en: "Duck with Pipkin Pot",
+      da: "Anden med lerkrukke",
+    },
+    medium: { en: "Oil on wood", da: "Olie på træ" },
+    year: null,
+    dimensions: null,
+    available: true,
+    orientation: "landscape",
+    category: "painting",
+  },
+  {
+    slug: "tree-at-cemetery",
+    number: 39,
+    image: "/art/39-tree-at-cemetery.jpg",
+    title: {
+      en: "The Tree at the Cemetery",
+      da: "Træet ved kirkegården",
+    },
+    medium: { en: "Ink on paper", da: "Blæk på papir" },
+    year: null,
+    dimensions: null,
+    available: true,
+    orientation: "portrait",
+    category: "drawing",
+  },
 ];
 
 export function getArtwork(slug: string): Artwork | undefined {

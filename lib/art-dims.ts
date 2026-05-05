@@ -41,6 +41,8 @@ export const artDims: Record<string, { w: number; h: number }> = {
   "/art/35-relief-cast.jpg": { w: 2334, h: 1149 },
   "/art/36-still-life-green-jar.jpg": { w: 5875, h: 3956 },
   "/art/37-vanitas-skull-and-mug.jpg": { w: 4032, h: 3024 },
+  "/art/38-duck-with-pipkin-pot.jpg": { w: 960, h: 551 },
+  "/art/39-tree-at-cemetery.jpg": { w: 1080, h: 1440 },
 };
 
 export function dimsFor(src: string) {
