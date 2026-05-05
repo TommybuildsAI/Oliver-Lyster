@@ -189,7 +189,7 @@ export default async function Works({
   const L = locale as Locale;
   const d = t(L);
   const { view: rawView } = await searchParams;
-  const view: View = rawView === "grid" ? "grid" : "gallery";
+  const view: View = rawView === "gallery" ? "gallery" : "grid";
 
   const labels = {
     gallery: L === "da" ? "Galleri" : "Gallery",
@@ -242,17 +242,17 @@ export default async function Works({
           <Link
             href={`/${L}/works`}
             className="smallcaps text-sm link-underline md:text-base"
-            data-active={view === "gallery" || undefined}
-          >
-            {labels.gallery}
-          </Link>
-          <span aria-hidden="true" className="text-graphite">·</span>
-          <Link
-            href={`/${L}/works?view=grid`}
-            className="smallcaps text-sm link-underline md:text-base"
             data-active={view === "grid" || undefined}
           >
             {labels.grid}
+          </Link>
+          <span aria-hidden="true" className="text-graphite">·</span>
+          <Link
+            href={`/${L}/works?view=gallery`}
+            className="smallcaps text-sm link-underline md:text-base"
+            data-active={view === "gallery" || undefined}
+          >
+            {labels.gallery}
           </Link>
         </div>
       </Rise>
