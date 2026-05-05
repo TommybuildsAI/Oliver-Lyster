@@ -2,9 +2,10 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
+import { JsonLd } from "@/components/JsonLd";
 import { press } from "@/lib/press";
 import { locales, t, type Locale } from "@/lib/i18n";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
 
 const pressMeta = {
   da: {
@@ -44,8 +45,30 @@ export default async function Press({
   const L = locale as Locale;
   const d = t(L);
 
+  // One NewsArticle entity per press item, each citing the publication
+  // and pointing back to Oliver as the article subject.
+  const jsonLd = press.map((item) => ({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: item.title[L],
+    url: item.url,
+    datePublished: item.dateIso,
+    inLanguage: L === "da" ? "da-DK" : "en",
+    image: `${SITE_URL}${item.image}`,
+    publisher: {
+      "@type": "Organization",
+      name: item.publication,
+    },
+    about: { "@id": `${SITE_URL}/#person` },
+    mentions: { "@id": `${SITE_URL}/#person` },
+    author: { "@type": "Organization", name: item.publication },
+    description: item.excerpt[L],
+    isBasedOn: item.url,
+  }));
+
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
+      <JsonLd data={jsonLd} />
       <Rise
         as="header"
         variant="drawline"

@@ -7,7 +7,7 @@ import { HeroSignature } from "@/components/HeroSignature";
 import { artworks } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, type Locale } from "@/lib/i18n";
-import { pageMetadata, SITE_URL } from "@/lib/seo";
+import { pageMetadata, altFor, SITE_URL } from "@/lib/seo";
 
 const homeCopy = {
   da: {
@@ -62,7 +62,7 @@ export default async function Home({
             <div className="relative mx-auto w-full overflow-hidden md:max-w-[52%]">
               <Image
                 src={hero.image}
-                alt={hero.title[L]}
+                alt={altFor(hero, L)}
                 width={dimsFor(hero.image).w}
                 height={dimsFor(hero.image).h}
                 priority

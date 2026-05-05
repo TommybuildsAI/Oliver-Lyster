@@ -13,7 +13,7 @@ import {
 } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
-import { pageMetadata, collectionPageSchema } from "@/lib/seo";
+import { pageMetadata, collectionPageSchema, altFor } from "@/lib/seo";
 
 type View = "gallery" | "grid";
 
@@ -101,7 +101,7 @@ function GalleryCollection({
                       <div className="relative overflow-hidden">
                         <Image
                           src={a.image}
-                          alt={a.title[L]}
+                          alt={altFor(a, L)}
                           width={dims.w}
                           height={dims.h}
                           sizes={

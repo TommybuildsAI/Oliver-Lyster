@@ -43,6 +43,21 @@ export function alternates(locale: Locale, path: string) {
   };
 }
 
+// Build a descriptive alt string from an artwork. Replaces bare title
+// alts with title + medium + (year) + author — better for image SEO,
+// AI engines, and screen readers.
+export function altFor(
+  a: { title: { en: string; da: string }; medium: { en: string; da: string }; year: string | null; category: "painting" | "drawing" },
+  locale: Locale
+): string {
+  const yearStr = a.year ? `, ${a.year}` : "";
+  if (locale === "da") {
+    const cat = a.category === "painting" ? "maleri" : "tegning";
+    return `${a.title.da} — ${a.medium.da}${yearStr}. ${cat} af Oliver Lyster.`;
+  }
+  return `${a.title.en} — ${a.medium.en}${yearStr}. ${a.category === "painting" ? "Painting" : "Drawing"} by Oliver Lyster.`;
+}
+
 // Reusable per-page metadata builder. Wraps the bilingual + OG +
 // canonical concerns so each page can stay terse.
 export function pageMetadata({
@@ -112,7 +127,7 @@ export function personSchema(press: PressItem[] = []) {
     nationality: { "@type": "Country", name: "Denmark" },
     jobTitle: "Painter",
     description:
-      "Traditionally trained classical realist oil painter based in Funen, Denmark. Trained at the Swedish Academy of Realist Art and under American painter Charles Weed.",
+      "Classical realist oil painter based in Funen, Denmark. Trained at the Swedish Academy of Realist Art in Skåne and apprenticed for three years under American painter Charles Weed in Svendborg. Works exclusively from direct observation in natural light; refuses to use photography or AI as reference. Combines studio practice with part-time work as a gravedigger.",
     knowsAbout: [
       "Classical realism",
       "Oil painting",

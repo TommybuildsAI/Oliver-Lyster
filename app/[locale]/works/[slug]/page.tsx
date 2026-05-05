@@ -11,6 +11,7 @@ import {
   pageMetadata,
   visualArtworkSchema,
   breadcrumbSchema,
+  altFor,
   SITE_URL,
   SITE_NAME,
 } from "@/lib/seo";
@@ -101,7 +102,7 @@ export default async function Work({
           <div className="relative overflow-hidden">
             <Image
               src={a.image}
-              alt={a.title[L]}
+              alt={altFor(a, L)}
               width={dimsFor(a.image).w}
               height={dimsFor(a.image).h}
               priority
