@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Analytics, SearchConsoleVerification } from "@/components/Analytics";
+import { CookieBanner } from "@/components/CookieBanner";
 import { ScrollProgress } from "@/components/ScrollProgress";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, t, type Locale } from "@/lib/i18n";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -18,17 +19,20 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
+  const L = locale as Locale;
+  const d = t(L);
 
   return (
     <>
       <SearchConsoleVerification />
       <ScrollProgress />
       <div className="flex min-h-screen flex-col">
-        <Header locale={locale as Locale} />
+        <Header locale={L} />
         <main className="relative z-10 flex-1">{children}</main>
-        <Footer locale={locale as Locale} />
+        <Footer locale={L} />
       </div>
       <Analytics />
+      <CookieBanner locale={L} copy={d.cookieBanner} />
     </>
   );
 }

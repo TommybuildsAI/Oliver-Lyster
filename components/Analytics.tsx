@@ -1,8 +1,24 @@
+"use client";
+
 import Script from "next/script";
+import { useEffect, useState } from "react";
+import { readConsent, CONSENT_EVENT } from "@/lib/consent";
 
 export function Analytics() {
   const id = process.env.NEXT_PUBLIC_GA_ID;
-  if (!id) return null;
+  const [consented, setConsented] = useState(false);
+
+  useEffect(() => {
+    setConsented(readConsent() === "accepted");
+    const onChange = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      setConsented(detail === "accepted");
+    };
+    window.addEventListener(CONSENT_EVENT, onChange);
+    return () => window.removeEventListener(CONSENT_EVENT, onChange);
+  }, []);
+
+  if (!id || !consented) return null;
   return (
     <>
       <Script

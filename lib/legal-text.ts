@@ -24,7 +24,7 @@ export const privacyText: Record<Locale, LegalDoc> = {
         body: [
           "Kontaktformular. Hjemmesidens kontaktformular åbner din egen e-mailklient med en forudfyldt besked. Når du sender beskeden, går den direkte fra din e-mail til Olivers indbakke. Hjemmesiden lagrer ikke dine oplysninger.",
           "Server-logfiler. Hjemmesiden hostes hos Cloudflare (Cloudflare Pages), som af sikkerheds- og driftsmæssige hensyn opretholder netværks- og server-logfiler over besøg. Logs kan indeholde din IP-adresse, browsertype og tidspunkt for besøget. Disse logs opbevares i kort tid. Cloudflare har EU-baseret kant-infrastruktur; eventuel overførsel til USA (moderselskabet Cloudflare Inc.) sker efter EU-Kommissionens standardkontraktbestemmelser.",
-          "Webanalyse. Hvis Google Analytics 4 er aktiveret på siden, indsamles anonymiseret information om dit besøg (sider du har set, varighed, omtrentlig geografisk placering ud fra IP-adresse, der anonymiseres før lagring). Detaljer findes i cookiepolitikken.",
+          "Webanalyse. Siden bruger Google Analytics 4 til anonymiseret statistik, men kun hvis du har givet samtykke via cookiebanneret. Ved samtykke indsamles anonymiseret information om dit besøg (sider du har set, varighed, omtrentlig geografisk placering ud fra IP-adresse, der anonymiseres før lagring). Afviser du, indlæses Google Analytics ikke. Du kan ændre dit valg når som helst på cookiesiden.",
         ],
       },
       {
@@ -63,7 +63,7 @@ export const privacyText: Record<Locale, LegalDoc> = {
         body: [
           "Contact form. The contact form opens your own email client with a pre-filled message. When you send it, the email goes directly from you to Oliver's inbox. The website does not store any of your data.",
           "Server logs. The website is hosted by Cloudflare (Cloudflare Pages), which maintains network and server logs for security and operational purposes. Logs may include your IP address, browser type, and visit timestamp. These are retained for a short period. Cloudflare operates EU-based edge infrastructure; any transfer to the United States (parent company Cloudflare Inc.) is made under the European Commission's Standard Contractual Clauses.",
-          "Web analytics. If Google Analytics 4 is enabled on the site, anonymised information about your visit is collected (pages viewed, time on page, approximate region derived from your IP, which is anonymised before storage). See the cookie policy for details.",
+          "Web analytics. The site uses Google Analytics 4 for anonymised statistics, but only if you have given consent via the cookie banner. With consent, anonymised information about your visit is collected (pages viewed, time on page, approximate region derived from your IP, which is anonymised before storage). If you decline, Google Analytics is not loaded. You can change your choice at any time on the cookies page.",
         ],
       },
       {
@@ -109,10 +109,10 @@ export const cookiesText: Record<Locale, LegalDoc> = {
       {
         heading: "Analyse",
         body: [
-          "Hvis Google Analytics 4 er aktiveret på siden (i øjeblikket: ikke aktiv), sætter Google følgende cookies:",
+          "Siden bruger Google Analytics 4 til anonymiseret webstatistik. Disse cookies sættes kun, hvis du har givet samtykke via cookiebanneret nederst på siden. Følgende cookies sættes ved samtykke:",
           "_ga (varighed: 2 år) — bruges til at skelne brugere fra hinanden.",
           "_ga_<id> (varighed: 2 år) — bruges af Google Analytics 4 til at gemme sessionstilstand.",
-          "IP-adresser anonymiseres før lagring.",
+          "IP-adresser anonymiseres før lagring. Hvis du afviser, sættes ingen analyse-cookies, og Google Analytics indlæses ikke.",
         ],
       },
       {
@@ -144,10 +144,10 @@ export const cookiesText: Record<Locale, LegalDoc> = {
       {
         heading: "Analytics",
         body: [
-          "If Google Analytics 4 is enabled on the site (currently: not active), Google sets the following cookies:",
+          "The site uses Google Analytics 4 for anonymised visitor statistics. These cookies are only set if you have given consent via the banner at the bottom of the page. With consent, the following cookies are set:",
           "_ga (lifetime: 2 years) — used to distinguish users.",
           "_ga_<id> (lifetime: 2 years) — used by Google Analytics 4 to store session state.",
-          "IP addresses are anonymised before storage.",
+          "IP addresses are anonymised before storage. If you decline, no analytics cookies are set and Google Analytics is not loaded.",
         ],
       },
       {

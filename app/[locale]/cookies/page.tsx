@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
+import { CookieResetButton } from "@/components/CookieResetButton";
 import { cookiesText } from "@/lib/legal-text";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, t, type Locale } from "@/lib/i18n";
 
 export async function generateMetadata({
   params,
@@ -23,6 +24,7 @@ export default async function Cookies({
   if (!locales.includes(locale as Locale)) notFound();
   const L = locale as Locale;
   const doc = cookiesText[L];
+  const d = t(L);
 
   return (
     <article className="mx-auto max-w-[900px] px-6 pt-16 pb-32 md:px-12 md:pt-24">
@@ -53,6 +55,20 @@ export default async function Cookies({
             </div>
           </Rise>
         ))}
+
+        <Rise as="section" delay={60} className="border-t border-rule pt-10 md:pt-14">
+          <h2 className="smallcaps text-base text-ink md:text-lg">
+            {L === "da" ? "Dit valg" : "Your choice"}
+          </h2>
+          <div className="mt-5 md:mt-6">
+            <CookieResetButton
+              labelReset={d.cookieReset.reset}
+              labelStateAccepted={d.cookieReset.stateAccepted}
+              labelStateDeclined={d.cookieReset.stateDeclined}
+              labelStateUnset={d.cookieReset.stateUnset}
+            />
+          </div>
+        </Rise>
       </div>
     </article>
   );

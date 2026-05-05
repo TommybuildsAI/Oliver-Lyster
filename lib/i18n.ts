@@ -68,6 +68,19 @@ export const dict = {
       privacy: "Privatlivspolitik",
       cookies: "Cookies",
     },
+    cookieBanner: {
+      message:
+        "Hjemmesiden bruger Google Analytics til anonymiseret webstatistik. Du bestemmer selv om disse cookies må sættes.",
+      learnMore: "Læs mere",
+      accept: "Acceptér",
+      decline: "Afvis",
+    },
+    cookieReset: {
+      reset: "Skift cookieindstillinger",
+      stateAccepted: "Du har accepteret analyse-cookies.",
+      stateDeclined: "Du har afvist analyse-cookies.",
+      stateUnset: "Du har endnu ikke valgt.",
+    },
     language: { da: "Dansk", en: "English", short: "DA" },
   },
   en: {
@@ -134,6 +147,19 @@ export const dict = {
       site: "Website by RiverAI",
       privacy: "Privacy",
       cookies: "Cookies",
+    },
+    cookieBanner: {
+      message:
+        "This site uses Google Analytics for anonymised visitor statistics. It's up to you whether these cookies are set.",
+      learnMore: "Learn more",
+      accept: "Accept",
+      decline: "Decline",
+    },
+    cookieReset: {
+      reset: "Change cookie preferences",
+      stateAccepted: "You have accepted analytics cookies.",
+      stateDeclined: "You have declined analytics cookies.",
+      stateUnset: "You haven't chosen yet.",
     },
     language: { da: "Dansk", en: "English", short: "EN" },
   },
