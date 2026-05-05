@@ -29,6 +29,18 @@ export function Footer({ locale }: { locale: Locale }) {
           >
             {d.nav.contact}
           </Link>
+          <Link
+            href={`/${locale}/privacy`}
+            className="smallcaps text-sm link-underline md:text-base"
+          >
+            {d.footer.privacy}
+          </Link>
+          <Link
+            href={`/${locale}/cookies`}
+            className="smallcaps text-sm link-underline md:text-base"
+          >
+            {d.footer.cookies}
+          </Link>
           <span className="smallcaps text-sm text-graphite md:text-base">
             {d.footer.site}
           </span>
