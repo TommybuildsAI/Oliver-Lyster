@@ -3,6 +3,20 @@ import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { exhibitions } from "@/lib/exhibitions";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
+
+const exMeta = {
+  da: {
+    title: "Udstillinger",
+    description:
+      "Udvalgte solo- og gruppeudstillinger af Oliver Lyster — bl.a. Frederiksborg Slot (Portrait Now, 2021), SAK Svendborg og Lundeborg Sognehus.",
+  },
+  en: {
+    title: "Exhibitions",
+    description:
+      "Selected solo and group exhibitions by Oliver Lyster — including Frederiksborg Slot (Portrait Now, 2021), SAK Svendborg, and Lundeborg Sognehus.",
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -10,7 +24,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: t(locale as Locale).exhibitions.title };
+  const L = locale as Locale;
+  return pageMetadata({
+    locale: L,
+    path: "/exhibitions",
+    title: exMeta[L].title,
+    description: exMeta[L].description,
+  });
 }
 
 export default async function Exhibitions({

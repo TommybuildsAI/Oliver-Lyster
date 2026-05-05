@@ -4,6 +4,7 @@ import { Rise } from "@/components/Rise";
 import { CookieResetButton } from "@/components/CookieResetButton";
 import { cookiesText } from "@/lib/legal-text";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,7 +13,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const L = locale as Locale;
-  return { title: cookiesText[L].title };
+  const doc = cookiesText[L];
+  return pageMetadata({
+    locale: L,
+    path: "/cookies",
+    title: doc.title,
+    description: doc.intro,
+  });
 }
 
 export default async function Cookies({

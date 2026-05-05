@@ -3,6 +3,20 @@ import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { ContactForm } from "@/components/ContactForm";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
+
+const contactMeta = {
+  da: {
+    title: "Kontakt",
+    description:
+      "Kontakt Oliver Lyster — for forespørgsler om værker, udstillinger, bestillingsarbejde eller presse. Klassisk realistisk maler, Fyn, Danmark.",
+  },
+  en: {
+    title: "Contact",
+    description:
+      "Contact Oliver Lyster — for enquiries about works, exhibitions, commissions, or press. Classical realist painter, Funen, Denmark.",
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -10,7 +24,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: t(locale as Locale).contact.title };
+  const L = locale as Locale;
+  return pageMetadata({
+    locale: L,
+    path: "/contact",
+    title: contactMeta[L].title,
+    description: contactMeta[L].description,
+  });
 }
 
 export default async function Contact({

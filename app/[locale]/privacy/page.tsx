@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { privacyText } from "@/lib/legal-text";
 import { locales, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -11,7 +12,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const L = locale as Locale;
-  return { title: privacyText[L].title };
+  const doc = privacyText[L];
+  return pageMetadata({
+    locale: L,
+    path: "/privacy",
+    title: doc.title,
+    description: doc.intro,
+  });
 }
 
 export default async function Privacy({

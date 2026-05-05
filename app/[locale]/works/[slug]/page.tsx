@@ -3,9 +3,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
+import { JsonLd } from "@/components/JsonLd";
 import { artworks, getArtwork } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
+import {
+  pageMetadata,
+  visualArtworkSchema,
+  breadcrumbSchema,
+  SITE_URL,
+  SITE_NAME,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   const params: { locale: string; slug: string }[] = [];
@@ -26,13 +34,21 @@ export async function generateMetadata({
   const L = locale as Locale;
   const a = getArtwork(slug);
   if (!a) return { title: "Not found" };
-  return {
-    title: `${a.title[L]}`,
-    description: `${a.title[L]} — ${a.medium[L]}${a.year ? `, ${a.year}` : ""}`,
-    openGraph: {
-      images: [{ url: a.image, alt: a.title[L] }],
-    },
-  };
+  const yearStr = a.year ? `, ${a.year}` : "";
+  const dimStr = a.dimensions ? ` — ${a.dimensions}` : "";
+  const description =
+    L === "da"
+      ? `${a.title[L]} — ${a.medium[L]}${yearStr}${dimStr}. Værk af Oliver Lyster, klassisk realistisk maler fra Fyn.`
+      : `${a.title[L]} — ${a.medium[L]}${yearStr}${dimStr}. Work by Oliver Lyster, classical realist painter from Funen, Denmark.`;
+  return pageMetadata({
+    locale: L,
+    path: `/works/${a.slug}`,
+    title: a.title[L],
+    description,
+    ogType: "article",
+    ogImage: `${SITE_URL}${a.image}`,
+    ogImageAlt: `${a.title[L]} — ${a.medium[L]}`,
+  });
 }
 
 export default async function Work({
@@ -55,8 +71,18 @@ export default async function Work({
     `${d.contact.subjectInquiry}: ${a.title.en}`
   );
 
+  const jsonLd = [
+    visualArtworkSchema(a, L),
+    breadcrumbSchema([
+      { name: SITE_NAME, url: `${SITE_URL}/${L}` },
+      { name: d.works.title, url: `${SITE_URL}/${L}/works` },
+      { name: a.title[L], url: `${SITE_URL}/${L}/works/${a.slug}` },
+    ]),
+  ];
+
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-12 md:px-12 md:pt-16">
+      <JsonLd data={jsonLd} />
       <Rise as="div" className="mb-8">
         <Link
           href={`/${L}/works`}

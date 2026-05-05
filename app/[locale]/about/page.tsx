@@ -4,6 +4,20 @@ import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { InstagramIcon } from "@/components/InstagramIcon";
 import { locales, t, aboutText, type Locale } from "@/lib/i18n";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
+
+const aboutMeta = {
+  da: {
+    title: "Om kunstneren",
+    description:
+      "Om Oliver Lyster (f. 1998, Helsingør) — klassisk skolet oliemaler bosat på Fyn. Uddannet ved Swedish Academy of Realist Art og hos den amerikanske maler Charles Weed.",
+  },
+  en: {
+    title: "About the artist",
+    description:
+      "About Oliver Lyster (b. 1998, Helsingør) — classically trained oil painter based in Funen, Denmark. Studied at the Swedish Academy of Realist Art and under American painter Charles Weed.",
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -11,7 +25,19 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: t(locale as Locale).about.title };
+  const L = locale as Locale;
+  return pageMetadata({
+    locale: L,
+    path: "/about",
+    title: aboutMeta[L].title,
+    description: aboutMeta[L].description,
+    ogType: "profile",
+    ogImage: `${SITE_URL}/art/02-autoportrait-with-hat.jpg`,
+    ogImageAlt:
+      L === "da"
+        ? "Oliver Lyster — Selvportræt med hat, olie på lærred"
+        : "Oliver Lyster — Autoportrait with Hat, oil on linen",
+  });
 }
 
 export default async function About({

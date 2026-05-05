@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
@@ -6,6 +7,40 @@ import { HeroSignature } from "@/components/HeroSignature";
 import { artworks } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, type Locale } from "@/lib/i18n";
+import { pageMetadata, SITE_URL } from "@/lib/seo";
+
+const homeCopy = {
+  da: {
+    title: "Oliver Lyster — Maler · Fyn, Danmark",
+    description:
+      "Oliver Lyster er klassisk skolet oliemaler fra Fyn i Danmark. Landskaber, portrætter og stillebener i de gamle mestres tradition.",
+    ogAlt: "Oliver Lyster — klassisk realistisk maler fra Fyn",
+  },
+  en: {
+    title: "Oliver Lyster — Painter · Funen, Denmark",
+    description:
+      "Oliver Lyster is a classically trained oil painter based in Funen, Denmark. Landscapes, portraits, and still lifes in the tradition of the Old Masters.",
+    ogAlt: "Oliver Lyster — classical realist painter from Funen, Denmark",
+  },
+} as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const L = locale as Locale;
+  const c = homeCopy[L];
+  return pageMetadata({
+    locale: L,
+    path: "",
+    title: c.title,
+    description: c.description,
+    ogImage: `${SITE_URL}/art/01-contemplation.jpg`,
+    ogImageAlt: c.ogAlt,
+  });
+}
 
 export default async function Home({
   params,

@@ -4,11 +4,31 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { BackToTop } from "@/components/BackToTop";
-import { paintings, drawings, type Artwork } from "@/lib/artworks";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  paintings,
+  drawings,
+  artworks,
+  type Artwork,
+} from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { pageMetadata, collectionPageSchema } from "@/lib/seo";
 
 type View = "gallery" | "grid";
+
+const worksCopy = {
+  da: {
+    title: "Værker",
+    description:
+      "Udvalgte malerier og tegninger af Oliver Lyster — olie, blæk og blyant i den klassiske realismes tradition. Landskaber, portrætter og stillebener fra Fyn.",
+  },
+  en: {
+    title: "Works",
+    description:
+      "Selected paintings and drawings by Oliver Lyster — oil, ink, and pencil in the tradition of classical realism. Landscapes, portraits, and still lifes from Funen, Denmark.",
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -17,7 +37,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const L = locale as Locale;
-  return { title: t(L).works.title };
+  return pageMetadata({
+    locale: L,
+    path: "/works",
+    title: worksCopy[L].title,
+    description: worksCopy[L].description,
+  });
 }
 
 function GalleryCollection({
@@ -196,8 +221,17 @@ export default async function Works({
     grid: L === "da" ? "Gitter" : "Grid",
   };
 
+  const jsonLd = collectionPageSchema({
+    locale: L,
+    path: "/works",
+    name: worksCopy[L].title,
+    description: worksCopy[L].description,
+    artworks,
+  });
+
   return (
     <div className="mx-auto max-w-[1400px] px-6 pt-16 md:px-12 md:pt-24">
+      <JsonLd data={jsonLd} />
       <Rise
         as="header"
         variant="drawline"

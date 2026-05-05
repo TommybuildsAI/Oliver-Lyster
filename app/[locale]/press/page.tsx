@@ -4,6 +4,20 @@ import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { press } from "@/lib/press";
 import { locales, t, type Locale } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/seo";
+
+const pressMeta = {
+  da: {
+    title: "Presse",
+    description:
+      "Presseomtaler og artikler om Oliver Lyster — bl.a. UD & SE og Helsingør Dagblad. Portrætter af kunstneren og hans arbejde i den klassiske maleritradition.",
+  },
+  en: {
+    title: "Press",
+    description:
+      "Press features and articles about Oliver Lyster — including UD & SE and Helsingør Dagblad. Portraits of the artist and his work in the classical painting tradition.",
+  },
+} as const;
 
 export async function generateMetadata({
   params,
@@ -11,7 +25,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: t(locale as Locale).press.title };
+  const L = locale as Locale;
+  return pageMetadata({
+    locale: L,
+    path: "/press",
+    title: pressMeta[L].title,
+    description: pressMeta[L].description,
+  });
 }
 
 export default async function Press({
