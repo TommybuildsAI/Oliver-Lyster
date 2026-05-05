@@ -24,15 +24,12 @@ export function CookieBanner({
   locale: Locale;
   copy: Copy;
 }) {
-  // Default to "accepted" pre-mount so the banner doesn't flash on first
-  // paint while we still don't know the persisted state.
   const [state, setState] = useState<ConsentState>("accepted");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     setState(readConsent());
-
     const onChange = (e: Event) => {
       const detail = (e as CustomEvent).detail as ConsentState;
       setState(detail);
@@ -52,37 +49,38 @@ export function CookieBanner({
     <div
       role="dialog"
       aria-label={copy.message}
-      className="fixed bottom-0 left-0 right-0 z-30 border-t border-paper/20 bg-ink text-paper"
+      className="pointer-events-none fixed inset-x-4 bottom-4 z-30 flex justify-center md:bottom-8 md:inset-x-8"
     >
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-5 px-6 py-5 md:flex-row md:items-center md:justify-between md:gap-10 md:px-12 md:py-6">
-        <p className="body-serif max-w-[65ch] text-sm md:text-base">
-          {copy.message}{" "}
-          <Link
-            href={`/${locale}/cookies`}
-            className="smallcaps text-xs link-underline md:text-sm"
-            data-active="true"
-          >
-            {copy.learnMore}
-          </Link>
+      <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-x-5 gap-y-2 rounded-full bg-[#ECE1C6] px-6 py-3 shadow-[0_8px_28px_rgba(26,26,26,0.18)] ring-1 ring-ink/10 md:flex-nowrap md:gap-x-7 md:px-8 md:py-4">
+        <p className="body-serif text-sm text-ink md:text-base">
+          {copy.message}
         </p>
-        <div className="flex shrink-0 items-baseline gap-6 md:gap-8">
-          <button
-            type="button"
-            onClick={() => decide("declined")}
-            className="smallcaps text-sm link-underline md:text-base"
-            data-active="true"
-          >
-            — {copy.decline}
-          </button>
-          <button
-            type="button"
-            onClick={() => decide("accepted")}
-            className="smallcaps text-sm link-underline md:text-base"
-            data-active="true"
-          >
-            — {copy.accept}
-          </button>
-        </div>
+        <Link
+          href={`/${locale}/cookies`}
+          className="smallcaps text-xs link-underline md:text-sm"
+          data-active="true"
+        >
+          {copy.learnMore}
+        </Link>
+        <span aria-hidden="true" className="hidden text-graphite md:inline">
+          ·
+        </span>
+        <button
+          type="button"
+          onClick={() => decide("declined")}
+          className="smallcaps text-sm link-underline md:text-base"
+          data-active="true"
+        >
+          {copy.decline}
+        </button>
+        <button
+          type="button"
+          onClick={() => decide("accepted")}
+          className="smallcaps text-sm link-underline md:text-base"
+          data-active="true"
+        >
+          {copy.accept}
+        </button>
       </div>
     </div>
   );

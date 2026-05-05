@@ -69,8 +69,7 @@ export const dict = {
       cookies: "Cookies",
     },
     cookieBanner: {
-      message:
-        "Hjemmesiden bruger Google Analytics til anonymiseret webstatistik. Du bestemmer selv om disse cookies må sættes.",
+      message: "Vi bruger Google Analytics til anonym statistik.",
       learnMore: "Læs mere",
       accept: "Acceptér",
       decline: "Afvis",
@@ -149,8 +148,7 @@ export const dict = {
       cookies: "Cookies",
     },
     cookieBanner: {
-      message:
-        "This site uses Google Analytics for anonymised visitor statistics. It's up to you whether these cookies are set.",
+      message: "We use Google Analytics for anonymous statistics.",
       learnMore: "Learn more",
       accept: "Accept",
       decline: "Decline",
