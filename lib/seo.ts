@@ -3,6 +3,7 @@ import type { Artwork } from "./artworks";
 import type { PressItem } from "./press";
 import type { FaqEntry } from "./faq";
 import type { Locale } from "./i18n";
+import { visualAltFor } from "./visual-alts";
 
 // Site-wide constants — single source of truth so descriptions, schema,
 // canonical URLs, and OG tags all stay in sync.
@@ -44,18 +45,28 @@ export function alternates(locale: Locale, path: string) {
 }
 
 // Build a descriptive alt string from an artwork. Replaces bare title
-// alts with title + medium + (year) + author — better for image SEO,
-// AI engines, and screen readers.
+// alts with title + medium + (year) + author + visual description —
+// better for image SEO, AI engines, and screen readers. Visual
+// descriptions live in lib/visual-alts.ts.
 export function altFor(
-  a: { title: { en: string; da: string }; medium: { en: string; da: string }; year: string | null; category: "painting" | "drawing" },
+  a: {
+    slug: string;
+    title: { en: string; da: string };
+    medium: { en: string; da: string };
+    year: string | null;
+    category: "painting" | "drawing";
+  },
   locale: Locale
 ): string {
   const yearStr = a.year ? `, ${a.year}` : "";
+  const visual = visualAltFor(a.slug, locale);
   if (locale === "da") {
     const cat = a.category === "painting" ? "maleri" : "tegning";
-    return `${a.title.da} — ${a.medium.da}${yearStr}. ${cat} af Oliver Lyster.`;
+    const head = `${a.title.da} — ${a.medium.da}${yearStr}. ${cat} af Oliver Lyster.`;
+    return visual ? `${head} ${visual}` : head;
   }
-  return `${a.title.en} — ${a.medium.en}${yearStr}. ${a.category === "painting" ? "Painting" : "Drawing"} by Oliver Lyster.`;
+  const head = `${a.title.en} — ${a.medium.en}${yearStr}. ${a.category === "painting" ? "Painting" : "Drawing"} by Oliver Lyster.`;
+  return visual ? `${head} ${visual}` : head;
 }
 
 // Reusable per-page metadata builder. Wraps the bilingual + OG +
