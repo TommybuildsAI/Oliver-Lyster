@@ -28,6 +28,10 @@ export const metadata: Metadata = {
   creator: "Oliver Daniel Lyster",
   publisher: "Oliver Lyster",
   category: "Art",
+  icons: {
+    icon: "/logo-portrait.png",
+    apple: "/logo-portrait.png",
+  },
   formatDetection: {
     telephone: false,
     email: false,
