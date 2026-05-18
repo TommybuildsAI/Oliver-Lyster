@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { readConsent, CONSENT_EVENT } from "@/lib/consent";
 
 export function Analytics() {
-  const id = process.env.NEXT_PUBLIC_GA_ID;
+  const id = process.env.NEXT_PUBLIC_GA_ID ?? "G-5MG5YE7PEK";
   const [consented, setConsented] = useState(false);
 
   useEffect(() => {
