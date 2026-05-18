@@ -1,0 +1,11 @@
+{
+  // Static export only. No `main` = assets-only Worker (no runtime).
+  // The explicit config is also what prevents `wrangler deploy` from
+  // auto-invoking the OpenNext Next.js adapter.
+  "name": "oliver-lyster",
+  "compatibility_date": "2026-05-18",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
