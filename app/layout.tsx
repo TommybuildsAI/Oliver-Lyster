@@ -29,8 +29,11 @@ export const metadata: Metadata = {
   publisher: "Oliver Lyster",
   category: "Art",
   icons: {
-    icon: "/logo-portrait.png",
-    apple: "/logo-portrait.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: "/apple-icon.png",
   },
   formatDetection: {
     telephone: false,
