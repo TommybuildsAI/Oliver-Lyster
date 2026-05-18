@@ -3,6 +3,8 @@ import { artworks } from "@/lib/artworks";
 import { locales } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/seo";
 
+export const dynamic = "force-static";
+
 type ChangeFreq = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
 
 const STATIC_PATHS: Array<{ path: string; freq: ChangeFreq; priority: number }> = [
