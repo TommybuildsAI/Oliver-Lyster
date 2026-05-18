@@ -1,18 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { type Locale, t } from "@/lib/i18n";
 
-export function ContactForm({
-  locale,
-  initialSubject = "",
-}: {
-  locale: Locale;
-  initialSubject?: string;
-}) {
+export function ContactForm({ locale }: { locale: Locale }) {
   const d = t(locale);
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "oliverdaniel.info@gmail.com";
-  const [subject] = useState(initialSubject);
+  const [subject, setSubject] = useState("");
+
+  // Static export can't read ?subject server-side, so the artwork
+  // "Enquire" deep link is parsed here on the client instead.
+  useEffect(() => {
+    const s = new URLSearchParams(window.location.search).get("subject");
+    if (s) setSubject(s);
+  }, []);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,6 +61,7 @@ export function ContactForm({
           name="message"
           rows={6}
           required
+          key={subject}
           className={`${field} resize-none`}
           defaultValue={subject ? `${subject}\n\n` : ""}
         />

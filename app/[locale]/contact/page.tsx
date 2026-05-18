@@ -35,13 +35,10 @@ export async function generateMetadata({
 
 export default async function Contact({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ subject?: string }>;
 }) {
   const { locale } = await params;
-  const { subject } = await searchParams;
   if (!locales.includes(locale as Locale)) notFound();
   const L = locale as Locale;
   const d = t(L);
@@ -105,7 +102,7 @@ export default async function Contact({
           delay={150}
           className="col-span-12 md:col-span-6 md:col-start-7"
         >
-          <ContactForm locale={L} initialSubject={subject ?? ""} />
+          <ContactForm locale={L} />
         </Rise>
       </div>
     </div>

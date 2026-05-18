@@ -13,9 +13,7 @@ import {
 } from "@/lib/artworks";
 import { dimsFor } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
-import { pageMetadata, collectionPageSchema, altFor } from "@/lib/seo";
-
-type View = "gallery" | "grid";
+import { pageMetadata, collectionPageSchema } from "@/lib/seo";
 
 const worksCopy = {
   da: {
@@ -43,98 +41,6 @@ export async function generateMetadata({
     title: worksCopy[L].title,
     description: worksCopy[L].description,
   });
-}
-
-function GalleryCollection({
-  items,
-  label,
-  anchor,
-  locale: L,
-  startIndex = 0,
-}: {
-  items: Artwork[];
-  label: string;
-  anchor: string;
-  locale: Locale;
-  startIndex?: number;
-}) {
-  if (items.length === 0) return null;
-  return (
-    <section id={anchor} className="mb-40 scroll-mt-24 md:mb-56">
-      <Rise
-        as="div"
-        variant="drawline"
-        className="mb-20 flex items-baseline justify-between pb-4 md:mb-32"
-      >
-        <h2 className="smallcaps text-xl md:text-2xl lg:text-3xl">— {label}</h2>
-        <span className="smallcaps text-xs text-graphite md:text-sm">
-          {items.length}
-        </span>
-      </Rise>
-
-      <ol className="flex flex-col gap-28 md:gap-40">
-        {items.map((a, i) => {
-          const globalIndex = startIndex + i;
-          const isWide = a.orientation !== "portrait";
-          const offsetCols = globalIndex % 3;
-          const dims = dimsFor(a.image);
-          return (
-            <Rise key={a.slug} as="li" variant="curtain" delay={60}>
-              <Link href={`/${L}/works/${a.slug}`} className="group paper-flutter block">
-                <div className="grid grid-cols-12 gap-4 md:gap-8">
-                  <div
-                    className={`col-span-12 ${
-                      isWide
-                        ? offsetCols === 0
-                          ? "md:col-span-10 md:col-start-2"
-                          : offsetCols === 1
-                          ? "md:col-span-9 md:col-start-1"
-                          : "md:col-span-8 md:col-start-4"
-                        : offsetCols === 0
-                        ? "md:col-span-6 md:col-start-3"
-                        : offsetCols === 1
-                        ? "md:col-span-7 md:col-start-5"
-                        : "md:col-span-5 md:col-start-2"
-                    }`}
-                  >
-                    <figure>
-                      <div className="relative overflow-hidden">
-                        <Image
-                          src={a.image}
-                          alt={altFor(a, L)}
-                          width={dims.w}
-                          height={dims.h}
-                          sizes={
-                            isWide
-                              ? "(min-width: 768px) 75vw, 100vw"
-                              : "(min-width: 768px) 45vw, 100vw"
-                          }
-                          className="h-auto w-full transition-transform duration-[1400ms] ease-[cubic-bezier(0.2,0.6,0.1,1)] group-hover:scale-[1.01]"
-                        />
-                      </div>
-                      <figcaption className="mt-5 flex flex-wrap items-baseline justify-between gap-4 md:mt-6">
-                        <span className="flex items-baseline gap-4">
-                          <span className="smallcaps text-[0.7rem] text-graphite">
-                            № {String(a.number).padStart(2, "0")}
-                          </span>
-                          <span className="font-serif italic soft-morph text-lg md:text-xl">
-                            {a.title[L]}
-                          </span>
-                        </span>
-                        <span className="smallcaps text-[0.7rem] text-graphite">
-                          {a.medium[L]} · {a.year ?? "—"}
-                        </span>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </Link>
-            </Rise>
-          );
-        })}
-      </ol>
-    </section>
-  );
 }
 
 function GridCollection({
@@ -204,22 +110,13 @@ function GridCollection({
 
 export default async function Works({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ view?: string }>;
 }) {
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
   const L = locale as Locale;
   const d = t(L);
-  const { view: rawView } = await searchParams;
-  const view: View = rawView === "gallery" ? "gallery" : "grid";
-
-  const labels = {
-    gallery: L === "da" ? "Galleri" : "Gallery",
-    grid: L === "da" ? "Gitter" : "Grid",
-  };
 
   const jsonLd = collectionPageSchema({
     locale: L,
@@ -247,10 +144,10 @@ export default async function Works({
         </p>
       </Rise>
 
-      {/* Jump nav + view toggle */}
+      {/* Jump nav */}
       <Rise
         as="nav"
-        className="mb-24 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 md:mb-32"
+        className="mb-24 flex flex-wrap items-baseline gap-x-8 gap-y-4 md:mb-32"
         delay={200}
       >
         <div className="flex items-baseline gap-8 md:gap-12">
@@ -271,59 +168,20 @@ export default async function Works({
             <span className="ml-2 text-graphite">({drawings.length})</span>
           </Link>
         </div>
-
-        <div className="flex items-baseline gap-4 md:gap-6">
-          <Link
-            href={`/${L}/works`}
-            className="smallcaps text-sm link-underline md:text-base"
-            data-active={view === "grid" || undefined}
-          >
-            {labels.grid}
-          </Link>
-          <span aria-hidden="true" className="text-graphite">·</span>
-          <Link
-            href={`/${L}/works?view=gallery`}
-            className="smallcaps text-sm link-underline md:text-base"
-            data-active={view === "gallery" || undefined}
-          >
-            {labels.gallery}
-          </Link>
-        </div>
       </Rise>
 
-      {view === "grid" ? (
-        <>
-          <GridCollection
-            items={paintings}
-            label={d.works.paintings}
-            anchor="paintings"
-            locale={L}
-          />
-          <GridCollection
-            items={drawings}
-            label={d.works.drawings}
-            anchor="drawings"
-            locale={L}
-          />
-        </>
-      ) : (
-        <>
-          <GalleryCollection
-            items={paintings}
-            label={d.works.paintings}
-            anchor="paintings"
-            locale={L}
-            startIndex={0}
-          />
-          <GalleryCollection
-            items={drawings}
-            label={d.works.drawings}
-            anchor="drawings"
-            locale={L}
-            startIndex={paintings.length}
-          />
-        </>
-      )}
+      <GridCollection
+        items={paintings}
+        label={d.works.paintings}
+        anchor="paintings"
+        locale={L}
+      />
+      <GridCollection
+        items={drawings}
+        label={d.works.drawings}
+        anchor="drawings"
+        locale={L}
+      />
 
       <BackToTop label={d.works.top} />
     </div>
