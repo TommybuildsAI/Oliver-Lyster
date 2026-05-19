@@ -10,7 +10,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer className="mt-32 border-t border-rule">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-6 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-12 md:py-12">
         <p className="smallcaps text-sm text-graphite md:text-base">
-          {d.footer.rights} · {year}
+          {d.footer.rights} · {year} · CVR 45784533
         </p>
 
         <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
@@ -41,9 +41,14 @@ export function Footer({ locale }: { locale: Locale }) {
           >
             {d.footer.cookies}
           </Link>
-          <span className="smallcaps text-sm text-graphite md:text-base">
+          <a
+            href="https://riverai.dk"
+            target="_blank"
+            rel="noopener"
+            className="smallcaps text-sm link-underline text-graphite md:text-base"
+          >
             {d.footer.site}
-          </span>
+          </a>
         </div>
       </div>
     </footer>

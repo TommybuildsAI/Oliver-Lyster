@@ -64,7 +64,7 @@ export const dict = {
     },
     footer: {
       rights: "Alle værker © Oliver Lyster",
-      site: "Hjemmeside af RiverAI",
+      site: "Hjemmeside af RiverAI ApS",
       privacy: "Privatlivspolitik",
       cookies: "Cookies",
     },
@@ -143,7 +143,7 @@ export const dict = {
     },
     footer: {
       rights: "All works © Oliver Lyster",
-      site: "Website by RiverAI",
+      site: "Website by RiverAI ApS",
       privacy: "Privacy",
       cookies: "Cookies",
     },

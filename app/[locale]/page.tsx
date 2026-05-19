@@ -72,7 +72,7 @@ export default async function Home({
             </div>
           </HeroParallax>
           <div className="mx-auto md:max-w-[52%]">
-            <HeroSignature delay={1600} />
+            <HeroSignature delay={600} />
           </div>
         </Rise>
       </div>

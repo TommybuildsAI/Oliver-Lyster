@@ -25,6 +25,8 @@
 
 :root {
   color-scheme: light;
+  /* Global zoom-out (browser 100%->80% equivalent), per Thomas. */
+  zoom: 0.8;
 }
 
 html,
