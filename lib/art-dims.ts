@@ -48,3 +48,11 @@ export const artDims: Record<string, { w: number; h: number }> = {
 export function dimsFor(src: string) {
   return artDims[src] ?? { w: 1600, h: 1200 };
 }
+
+// Preferred lookup: works uploaded via /admin carry their pixel size in
+// the database, so they aren't in the map above. Repo-era works fall
+// back to the map.
+export function dimsOf(a: { image: string; imageW?: number | null; imageH?: number | null }) {
+  if (a.imageW && a.imageH) return { w: a.imageW, h: a.imageH };
+  return dimsFor(a.image);
+}

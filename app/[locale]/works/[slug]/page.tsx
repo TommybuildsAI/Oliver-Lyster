@@ -5,13 +5,14 @@ import type { Metadata } from "next";
 import { Rise } from "@/components/Rise";
 import { JsonLd } from "@/components/JsonLd";
 import { artworks, getArtwork } from "@/lib/artworks";
-import { dimsFor } from "@/lib/art-dims";
+import { dimsOf } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 import {
   pageMetadata,
   visualArtworkSchema,
   breadcrumbSchema,
   altFor,
+  absImageUrl,
   SITE_URL,
   SITE_NAME,
 } from "@/lib/seo";
@@ -47,7 +48,7 @@ export async function generateMetadata({
     title: a.title[L],
     description,
     ogType: "article",
-    ogImage: `${SITE_URL}${a.image}`,
+    ogImage: absImageUrl(a.image),
     ogImageAlt: `${a.title[L]} — ${a.medium[L]}`,
   });
 }
@@ -103,8 +104,8 @@ export default async function Work({
             <Image
               src={a.image}
               alt={altFor(a, L)}
-              width={dimsFor(a.image).w}
-              height={dimsFor(a.image).h}
+              width={dimsOf(a).w}
+              height={dimsOf(a).h}
               priority
               sizes="(min-width: 768px) 66vw, 100vw"
               className="h-auto w-full"
@@ -157,6 +158,12 @@ export default async function Work({
               </dd>
             </div>
           </dl>
+
+          {a.description && (
+            <p className="body-serif mt-10 text-base text-ink-soft md:text-lg">
+              {a.description[L]}
+            </p>
+          )}
 
           {a.available && (
             <Link

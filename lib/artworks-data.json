@@ -1,0 +1,821 @@
+[
+  {
+    "slug": "contemplation",
+    "number": 1,
+    "image": "/art/01-contemplation.jpg",
+    "imageW": 883,
+    "imageH": 1396,
+    "title": {
+      "en": "Contemplation",
+      "da": "Kontemplation"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "autoportrait-with-hat",
+    "number": 2,
+    "image": "/art/02-autoportrait-with-hat.jpg",
+    "imageW": 1125,
+    "imageH": 1045,
+    "title": {
+      "en": "Autoportrait with Hat",
+      "da": "Selvportræt med hat"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": "2024",
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "ginger-jar-moose-skull",
+    "number": 3,
+    "image": "/art/03-ginger-jar-moose-skull.jpg",
+    "imageW": 4031,
+    "imageH": 2713,
+    "title": {
+      "en": "Ginger Jar with Moose Skull",
+      "da": "Ingefærkrukke med elsdyrekranium"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "storm-coming",
+    "number": 4,
+    "image": "/art/04-storm-coming.jpg",
+    "imageW": 3663,
+    "imageH": 2697,
+    "title": {
+      "en": "Storm Coming",
+      "da": "Storm i vente"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": "2024",
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "midnight-with-trees",
+    "number": 5,
+    "image": "/art/05-midnight-with-trees.jpg",
+    "imageW": 3530,
+    "imageH": 2217,
+    "title": {
+      "en": "Midnight with Trees",
+      "da": "Midnat med træer"
+    },
+    "medium": {
+      "en": "Oil on oak",
+      "da": "Olie på eg"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "a-young-woman",
+    "number": 6,
+    "image": "/art/06-a-young-woman.jpg",
+    "imageW": 1080,
+    "imageH": 1392,
+    "title": {
+      "en": "A Young Woman",
+      "da": "En ung kvinde"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "shell-on-grey",
+    "number": 7,
+    "image": "/art/07-shell-grey-background.jpg",
+    "imageW": 2430,
+    "imageH": 3461,
+    "title": {
+      "en": "Shell on Grey Background",
+      "da": "Musling på grå baggrund"
+    },
+    "medium": {
+      "en": "Ink wash on paper",
+      "da": "Blæklavering på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "square",
+    "category": "drawing"
+  },
+  {
+    "slug": "memories-of-autumn",
+    "number": 8,
+    "image": "/art/08-memories-of-autumn.jpg",
+    "imageW": 3539,
+    "imageH": 2569,
+    "title": {
+      "en": "Memories of Autumn",
+      "da": "Efterårserindringer"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "twisted-willow",
+    "number": 9,
+    "image": "/art/09-twisted-willow.jpg",
+    "imageW": 2887,
+    "imageH": 4032,
+    "title": {
+      "en": "The Twisted Willow",
+      "da": "Den forvredne pil"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": "2024/25",
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "bright-sun",
+    "number": 10,
+    "image": "/art/10-bright-sun.jpg",
+    "imageW": 2938,
+    "imageH": 3743,
+    "title": {
+      "en": "Bright Sun",
+      "da": "Skarp sol"
+    },
+    "medium": {
+      "en": "Oil on canvas",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "autoportrait-with-red-cap",
+    "number": 11,
+    "image": "/art/11-autoportrait-red-cap.jpg",
+    "imageW": 1080,
+    "imageH": 1364,
+    "title": {
+      "en": "Self-Portrait with Red Cap and Palette",
+      "da": "Selvportræt med rød hue og palet"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "vanitas",
+    "number": 12,
+    "image": "/art/12-vanitas.jpg",
+    "imageW": 819,
+    "imageH": 971,
+    "title": {
+      "en": "Vanitas",
+      "da": "Vanitas"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "painting"
+  },
+  {
+    "slug": "apples-and-pomegranate",
+    "number": 13,
+    "image": "/art/13-apples-pomegranate.jpg",
+    "imageW": 1440,
+    "imageH": 940,
+    "title": {
+      "en": "Apples and Pomegranate",
+      "da": "Æbler og granatæble"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "still-life-with-roman-bowl",
+    "number": 14,
+    "image": "/art/14-still-life-roman-bowl.jpg",
+    "imageW": 3643,
+    "imageH": 2453,
+    "title": {
+      "en": "Still Life with Roman Bowl",
+      "da": "Stilleben med romersk krukke"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "night-landscape",
+    "number": 15,
+    "image": "/art/15-night-landscape.jpg",
+    "imageW": 1525,
+    "imageH": 1005,
+    "title": {
+      "en": "Night Landscape",
+      "da": "Nattelandskab"
+    },
+    "medium": {
+      "en": "Oil on panel",
+      "da": "Olie på plade"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "trees-at-dusk",
+    "number": 16,
+    "image": "/art/16-trees-at-dusk.jpg",
+    "imageW": 826,
+    "imageH": 596,
+    "title": {
+      "en": "Trees at Dusk",
+      "da": "Træer i skumring"
+    },
+    "medium": {
+      "en": "Oil on panel",
+      "da": "Olie på plade"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "summer-meadow",
+    "number": 17,
+    "image": "/art/17-summer-meadow.jpg",
+    "imageW": 3000,
+    "imageH": 2194,
+    "title": {
+      "en": "Summer Meadow",
+      "da": "Sommereng"
+    },
+    "medium": {
+      "en": "Oil on panel",
+      "da": "Olie på plade"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "evening-landscape",
+    "number": 18,
+    "image": "/art/18-evening-landscape.jpg",
+    "imageW": 2666,
+    "imageH": 1834,
+    "title": {
+      "en": "Evening Landscape",
+      "da": "Aftenlandskab"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "landscape-study",
+    "number": 19,
+    "image": "/art/19-landscape-study.jpg",
+    "imageW": 4289,
+    "imageH": 3063,
+    "title": {
+      "en": "Landscape Study",
+      "da": "Landskabsstudie"
+    },
+    "medium": {
+      "en": "Oil on paper",
+      "da": "Olie på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "girl-and-oak",
+    "number": 20,
+    "image": "/art/20-girl-and-oak.jpg",
+    "imageW": 767,
+    "imageH": 1090,
+    "title": {
+      "en": "Girl and Oak",
+      "da": "Pige og eg"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "figures-under-old-tree",
+    "number": 21,
+    "image": "/art/21-figures-old-tree.jpg",
+    "imageW": 1896,
+    "imageH": 2729,
+    "title": {
+      "en": "Figures under an Old Tree",
+      "da": "Figurer under et gammelt træ"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "edge-of-forest",
+    "number": 22,
+    "image": "/art/22-edge-of-forest.jpg",
+    "imageW": 2042,
+    "imageH": 2701,
+    "title": {
+      "en": "Edge of Forest",
+      "da": "Skovbryn"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "willows",
+    "number": 23,
+    "image": "/art/23-willows.jpg",
+    "imageW": 932,
+    "imageH": 607,
+    "title": {
+      "en": "Willows",
+      "da": "Piletræer"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "old-tree",
+    "number": 24,
+    "image": "/art/24-old-tree.jpg",
+    "imageW": 844,
+    "imageH": 578,
+    "title": {
+      "en": "The Old Tree",
+      "da": "Det gamle træ"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "pastoral-scene",
+    "number": 25,
+    "image": "/art/25-pastoral-scene.jpg",
+    "imageW": 2162,
+    "imageH": 2073,
+    "title": {
+      "en": "Pastoral Scene",
+      "da": "Pastoralt motiv"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "square",
+    "category": "drawing"
+  },
+  {
+    "slug": "el-poppel",
+    "number": 26,
+    "image": "/art/26-poplar.jpg",
+    "imageW": 559,
+    "imageH": 668,
+    "title": {
+      "en": "El Poppel (Taasinge)",
+      "da": "El Poppel (Taasinge)"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": "2023",
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "portrait-young-woman",
+    "number": 27,
+    "image": "/art/27-portrait-young-woman.jpg",
+    "imageW": 817,
+    "imageH": 1214,
+    "title": {
+      "en": "Portrait of a Young Woman",
+      "da": "Portræt af en ung kvinde"
+    },
+    "medium": {
+      "en": "Pencil on paper",
+      "da": "Blyant på papir"
+    },
+    "year": "2024",
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "portrait-study-man",
+    "number": 28,
+    "image": "/art/28-portrait-study-man.jpg",
+    "imageW": 354,
+    "imageH": 444,
+    "title": {
+      "en": "Portrait Study",
+      "da": "Portrætstudie"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "young-woman-profile",
+    "number": 29,
+    "image": "/art/29-young-woman-profile.jpg",
+    "imageW": 2278,
+    "imageH": 3237,
+    "title": {
+      "en": "Young Woman in Profile",
+      "da": "Ung kvinde i profil"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "self-portrait-study",
+    "number": 30,
+    "image": "/art/30-self-portrait-study.jpg",
+    "imageW": 826,
+    "imageH": 911,
+    "title": {
+      "en": "Self-Portrait Study",
+      "da": "Selvportrætstudie"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "square",
+    "category": "drawing"
+  },
+  {
+    "slug": "jackal-skull",
+    "number": 31,
+    "image": "/art/31-jackal-skull.jpg",
+    "imageW": 1198,
+    "imageH": 1017,
+    "title": {
+      "en": "Jackal Skull",
+      "da": "Sjakalkranie"
+    },
+    "medium": {
+      "en": "Pencil on paper",
+      "da": "Blyant på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "memento-mori",
+    "number": 32,
+    "image": "/art/32-memento-mori.jpg",
+    "imageW": 2114,
+    "imageH": 1648,
+    "title": {
+      "en": "Memento Mori",
+      "da": "Memento mori"
+    },
+    "medium": {
+      "en": "Pencil on paper",
+      "da": "Blyant på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "nude-studies",
+    "number": 33,
+    "image": "/art/33-nude-studies.jpg",
+    "imageW": 3600,
+    "imageH": 1905,
+    "title": {
+      "en": "Nude Studies",
+      "da": "Nøgenstudier"
+    },
+    "medium": {
+      "en": "Pencil on paper",
+      "da": "Blyant på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "self-portrait-circle",
+    "number": 34,
+    "image": "/art/34-self-portrait-circle.jpg",
+    "imageW": 2091,
+    "imageH": 2374,
+    "title": {
+      "en": "Self-Portrait in a Circle",
+      "da": "Selvportræt i cirkel"
+    },
+    "medium": {
+      "en": "Pen on paper",
+      "da": "Pen på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  },
+  {
+    "slug": "relief-cast",
+    "number": 35,
+    "image": "/art/35-relief-cast.jpg",
+    "imageW": 2334,
+    "imageH": 1149,
+    "title": {
+      "en": "Relief Cast Study",
+      "da": "Reliefstudie"
+    },
+    "medium": {
+      "en": "Pencil on paper",
+      "da": "Blyant på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "drawing"
+  },
+  {
+    "slug": "still-life-green-jar",
+    "number": 36,
+    "image": "/art/36-still-life-green-jar.jpg",
+    "imageW": 5875,
+    "imageH": 3956,
+    "title": {
+      "en": "Still Life with Green Jar",
+      "da": "Stilleben med grøn krukke"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "vanitas-skull-and-mug",
+    "number": 37,
+    "image": "/art/37-vanitas-skull-and-mug.jpg",
+    "imageW": 4032,
+    "imageH": 3024,
+    "title": {
+      "en": "Vanitas with Skull and Mug",
+      "da": "Vanitas med kranie og krus"
+    },
+    "medium": {
+      "en": "Oil on linen",
+      "da": "Olie på lærred"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "duck-with-pipkin-pot",
+    "number": 38,
+    "image": "/art/38-duck-with-pipkin-pot.jpg",
+    "imageW": 960,
+    "imageH": 551,
+    "title": {
+      "en": "Duck with Pipkin Pot",
+      "da": "Anden med lerkrukke"
+    },
+    "medium": {
+      "en": "Oil on wood",
+      "da": "Olie på træ"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "landscape",
+    "category": "painting"
+  },
+  {
+    "slug": "tree-at-cemetery",
+    "number": 39,
+    "image": "/art/39-tree-at-cemetery.jpg",
+    "imageW": 1080,
+    "imageH": 1440,
+    "title": {
+      "en": "The Tree at the Cemetery",
+      "da": "Træet ved kirkegården"
+    },
+    "medium": {
+      "en": "Ink on paper",
+      "da": "Blæk på papir"
+    },
+    "year": null,
+    "dimensions": null,
+    "description": null,
+    "available": true,
+    "orientation": "portrait",
+    "category": "drawing"
+  }
+]

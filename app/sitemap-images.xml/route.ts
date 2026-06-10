@@ -1,7 +1,7 @@
 import { artworks } from "@/lib/artworks";
 import { press } from "@/lib/press";
 import { locales } from "@/lib/i18n";
-import { SITE_URL, ARTIST_NAME } from "@/lib/seo";
+import { SITE_URL, ARTIST_NAME, absImageUrl } from "@/lib/seo";
 
 // Image sitemap — Google's image extension to the standard sitemap
 // (https://developers.google.com/search/docs/crawling-indexing/sitemaps/image-sitemaps).
@@ -31,7 +31,7 @@ export function GET() {
   for (const a of artworks) {
     for (const locale of locales) {
       const pageUrl = `${SITE_URL}/${locale}/works/${a.slug}`;
-      const imageUrl = `${SITE_URL}${a.image}`;
+      const imageUrl = absImageUrl(a.image);
       const yearStr = a.year ? `, ${a.year}` : "";
       const title = `${a.title[locale]} — ${a.medium[locale]}${yearStr}`;
       const caption = `${a.title[locale]}, ${a.category} by ${ARTIST_NAME}${yearStr}.`;

@@ -19,6 +19,13 @@ export const ARTIST_INSTAGRAM = "https://www.instagram.com/oliverlyster/";
 // Default OG image — Oliver's signed self-portrait in oil
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/art/02-autoportrait-with-hat.jpg`;
 
+// Artwork image fields hold either a repo path ("/art/…") or a full
+// Supabase Storage URL (works uploaded via /admin). Schemas, OG tags,
+// and sitemaps always need the absolute form.
+export function absImageUrl(image: string): string {
+  return image.startsWith("http") ? image : `${SITE_URL}${image}`;
+}
+
 export function ogLocale(locale: Locale): string {
   return locale === "da" ? "da_DK" : "en_US";
 }
@@ -197,7 +204,7 @@ export function visualArtworkSchema(a: Artwork, locale: Locale) {
     creator: { "@id": `${SITE_URL}/#person` },
     artform: isPainting ? "Painting" : "Drawing",
     artMedium: a.medium.en,
-    image: `${SITE_URL}${a.image}`,
+    image: absImageUrl(a.image),
     url: `${SITE_URL}/${locale}/works/${a.slug}`,
     inLanguage: inLanguage(locale),
     ...(a.year ? { dateCreated: a.year } : {}),
@@ -245,7 +252,7 @@ export function collectionPageSchema({
       "@type": "VisualArtwork",
       name: a.title[locale],
       url: `${SITE_URL}/${locale}/works/${a.slug}`,
-      image: `${SITE_URL}${a.image}`,
+      image: absImageUrl(a.image),
       creator: { "@id": `${SITE_URL}/#person` },
     })),
   };
