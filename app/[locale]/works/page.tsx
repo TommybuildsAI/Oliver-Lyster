@@ -11,7 +11,7 @@ import {
   artworks,
   type Artwork,
 } from "@/lib/artworks";
-import { dimsFor } from "@/lib/art-dims";
+import { dimsOf } from "@/lib/art-dims";
 import { locales, t, type Locale } from "@/lib/i18n";
 import { pageMetadata, collectionPageSchema } from "@/lib/seo";
 
@@ -70,7 +70,7 @@ function GridCollection({
 
       <ol className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16">
         {items.map((a) => {
-          const dims = dimsFor(a.image);
+          const dims = dimsOf(a);
           return (
             <Rise key={a.slug} as="li" variant="curtain" delay={60}>
               <Link href={`/${L}/works/${a.slug}`} className="group paper-flutter block">
