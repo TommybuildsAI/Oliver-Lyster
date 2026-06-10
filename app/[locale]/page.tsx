@@ -4,8 +4,9 @@ import { notFound } from "next/navigation";
 import { Rise } from "@/components/Rise";
 import { HeroParallax } from "@/components/HeroParallax";
 import { HeroSignature } from "@/components/HeroSignature";
+import { InstagramStrip } from "@/components/InstagramStrip";
 import { artworks } from "@/lib/artworks";
-import { dimsFor } from "@/lib/art-dims";
+import { dimsOf } from "@/lib/art-dims";
 import { locales, type Locale } from "@/lib/i18n";
 import { pageMetadata, altFor, SITE_URL } from "@/lib/seo";
 
@@ -63,8 +64,8 @@ export default async function Home({
               <Image
                 src={hero.image}
                 alt={altFor(hero, L)}
-                width={dimsFor(hero.image).w}
-                height={dimsFor(hero.image).h}
+                width={dimsOf(hero).w}
+                height={dimsOf(hero).h}
                 priority
                 sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"
                 className="kenburns h-auto w-full"
@@ -75,6 +76,8 @@ export default async function Home({
             <HeroSignature delay={600} />
           </div>
         </Rise>
+
+        <InstagramStrip locale={L} />
       </div>
     </section>
   );
